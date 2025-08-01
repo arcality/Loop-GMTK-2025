@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://di6qsnp8sox0m"]
 
-[ext_resource type="Script" uid="uid://k2v4vnh2w3ic" path="res://scripts/objects/gear_platform.gd" id="1_6vo10"]
+[ext_resource type="Script" uid="uid://k2v4vnh2w3ic" path="res://scripts/objects/gear-platform.gd" id="1_6vo10"]
 [ext_resource type="Texture2D" uid="uid://ceyytak344xtk" path="res://assets/art/objects/27.png" id="1_up30g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vo10"]
