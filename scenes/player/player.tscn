@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://cfskfeik1l6kr" path="res://scripts/player/player.gd" id="1_dovo2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
-radius = 64.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dovo2")
@@ -13,4 +12,5 @@ script = ExtResource("1_dovo2")
 shape = SubResource("CircleShape2D_dovo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_8afob")
