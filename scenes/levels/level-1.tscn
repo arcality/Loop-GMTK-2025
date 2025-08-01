@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://c4wj1mom22q"]
+[gd_scene load_steps=10 format=4 uid="uid://c4wj1mom22q"]
 
 [ext_resource type="Script" uid="uid://d3jbihb5tqfap" path="res://scripts/levels/level-1.gd" id="1_ktyk1"]
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="2_eeqru"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://di6qsnp8sox0m" path="res://scenes/objects/gear-platform.tscn" id="4_gl321"]
 [ext_resource type="PackedScene" uid="uid://b0l1sixy7j445" path="res://scenes/objects/gear-horizontal.tscn" id="5_ieimj"]
 [ext_resource type="PackedScene" uid="uid://c34okirlxd1p4" path="res://scenes/objects/gear-vertical.tscn" id="6_a1qmq"]
+[ext_resource type="PackedScene" uid="uid://d2ib3ad831ik1" path="res://scenes/objects/moving-platform.tscn" id="7_wubvj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqru"]
 texture = ExtResource("2_eeqru")
@@ -168,3 +169,6 @@ position = Vector2(51, 194)
 [node name="Gear-vertical" parent="." instance=ExtResource("6_a1qmq")]
 position = Vector2(149, 166)
 y_velocity = 30.0
+
+[node name="Moving-platform" parent="." instance=ExtResource("7_wubvj")]
+position = Vector2(147, 111)
