@@ -1,5 +1,7 @@
 extends Node2D
 
+signal start_game()
+
 func _ready() -> void: 
 	$CenterContainer/SettingsMenu/MainVolSlider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
 	$CenterContainer/SettingsMenu/MusicVolSlider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("MUSIC")))
@@ -7,7 +9,8 @@ func _ready() -> void:
 
 func _on_play_pressed() -> void:
 	# load level 1
-	Main.load_level_number(Main.starting_level_number)
+	#Main.load_level_from_number(Main.starting_level_number, 0)
+	start_game.emit()
 	# remove title screen
 	queue_free()
 
