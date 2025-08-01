@@ -35,4 +35,4 @@ func _on_player_threw_item(item: ThrowableItem, x_direction: float) -> void:
 
 
 func _on_player_picked_up_item(item: ThrowableItem) -> void:
-	pass # Replace with function body.
+	current_level.remove_child(item)
