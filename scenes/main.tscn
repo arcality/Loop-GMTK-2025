@@ -5,7 +5,6 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
-starting_level_number = null
 
 [node name="Player" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(151, 43)
