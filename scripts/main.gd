@@ -27,3 +27,13 @@ func load_level_number(num: int):
 
 func remove_level():
 	remove_child(current_level)
+
+
+func _on_player_threw_item(item: ThrowableItem, x_direction: float) -> void:
+	add_child(item)
+	item.position = Vector2($Player.position)
+	item.throw(x_direction)
+
+
+func _on_player_picked_up_item(item: ThrowableItem) -> void:
+	current_level.remove_child(item)
