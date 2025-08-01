@@ -1,9 +1,14 @@
 extends CharacterBody2D
 
+var held_item: ThrowableItem
 
-const SPEED = 300.0
+signal threw_item(item: ThrowableItem, x_direction: float)
+signal picked_up_item(item: ThrowableItem)
+
+const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
+var x_direction: float
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -16,10 +21,29 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	x_direction = Input.get_axis("ui_left", "ui_right")
+	if x_direction:
+		velocity.x = x_direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("throw") and held_item != null:
+		throw_item()
+	elif event.is_action_pressed("throw") and held_item == null:
+		pick_up_item()
+
+func throw_item():
+	threw_item.emit(held_item, x_direction)
+	held_item = null
+
+func pick_up_item():
+	for i in $PickUpRange.get_overlapping_bodies():
+		if i is ThrowableItem:
+			held_item = i
+			picked_up_item.emit(i)
+			break

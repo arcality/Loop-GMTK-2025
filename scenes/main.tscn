@@ -5,6 +5,10 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
+starting_level_number = null
 
 [node name="Player" parent="." instance=ExtResource("2_0wfyh")]
 position = Vector2(151, 43)
+
+[connection signal="picked_up_item" from="Player" to="." method="_on_player_picked_up_item"]
+[connection signal="threw_item" from="Player" to="." method="_on_player_threw_item"]
