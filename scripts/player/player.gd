@@ -8,7 +8,7 @@ signal picked_up_item(item: ThrowableItem)
 const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 
-var x_direction: float
+var x_direction: float = 1.0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -21,9 +21,11 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	x_direction = Input.get_axis("left", "right")
-	if x_direction:
-		velocity.x = x_direction * SPEED
+	var direction := Input.get_axis("left", "right")
+	if direction != 0.0:
+		x_direction = direction
+	if direction:
+		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -44,6 +46,7 @@ func throw_item():
 func pick_up_item():
 	for i in $PickUpRange.get_overlapping_bodies():
 		if i is ThrowableItem:
-			held_item = i
-			picked_up_item.emit(i)
-			break
+			if i.is_being_thrown == false:
+				held_item = i
+				picked_up_item.emit(i)
+				break
