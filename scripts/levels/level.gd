@@ -17,3 +17,6 @@ class_name Level extends Node2D
 ## Emitted when switching levels. [param spawn_pos_index] refers to the index
 ## in the [member spawn_pos] of the [Level] represented by [param next_level]
 signal level_progressed(next_level: int, spawn_pos_index: int)
+
+## Stores a reference to the player. To be updated by the main scene
+@onready var player: Player

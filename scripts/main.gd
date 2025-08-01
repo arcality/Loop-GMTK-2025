@@ -35,6 +35,8 @@ func load_level_from_number(level_num: int, spawn_pos_index: int) -> void:
 	assert(current_level is Level)
 	self.add_child(current_level)
 	
+	current_level.player = player
+	
 	player.position = current_level.spawn_positions[spawn_pos_index]
 
 #func remove_level():
