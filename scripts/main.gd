@@ -1,7 +1,6 @@
 extends Node
 
-const level_1: Resource = preload("res://scenes/levels/level-1.tscn")
-const levels: Array[Resource] = [
+const levels: Array[PackedScene] = [
 	preload("res://scenes/levels/level-1.tscn")
 ]
 
@@ -20,7 +19,7 @@ func _process(delta: float) -> void:
 
 
 func load_level_number(num: int):
-	var instance = levels[num+1].instance()
+	var instance = levels[num-1].instantiate()
 	self.add_child(instance)
 	
 	assert(instance is Level)
