@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0l1sixy7j445"]
+
+[ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="1_ryu8p"]
+[ext_resource type="Script" uid="uid://dqp8kbq1pwuys" path="res://scripts/objects/gear-horizontal.gd" id="1_xyn2f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhan2"]
+size = Vector2(48, 10)
+
+[node name="Gear-horizontal" type="StaticBody2D"]
+constant_linear_velocity = Vector2(50, 0)
+script = ExtResource("1_xyn2f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yhan2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.375, 0.078125)
+texture = ExtResource("1_ryu8p")
