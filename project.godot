@@ -23,7 +23,6 @@ Main="*res://scripts/main.gd"
 
 window/size/viewport_width=384
 window/size/viewport_height=216
-window/size/mode=4
 window/stretch/mode="canvas_items"
 
 [file_customization]
