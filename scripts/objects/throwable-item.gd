@@ -12,7 +12,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(velocity.x)
 	if is_being_thrown and velocity.x == 0.0:
 		queue_free()
 

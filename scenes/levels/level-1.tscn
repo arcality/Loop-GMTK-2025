@@ -166,4 +166,5 @@ position = Vector2(289, 150)
 position = Vector2(51, 194)
 
 [node name="Gear-vertical" parent="." instance=ExtResource("6_a1qmq")]
-position = Vector2(155, 187)
+position = Vector2(149, 166)
+y_velocity = 30.0

@@ -16,7 +16,7 @@ signal threw_item(item: ThrowableItem, x_direction: float)
 signal picked_up_item(item: ThrowableItem)
 
 const SPEED = 150.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -300.0
 
 ## Stores the x-component of the direction for a thrown object.
 var x_direction: float = 1.0
