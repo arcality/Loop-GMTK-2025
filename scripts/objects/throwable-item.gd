@@ -12,7 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if is_being_thrown and velocity.x == 0.0:
+	if is_being_thrown and abs(velocity.x) < THROW_SPEED:
 		queue_free()
 
 func _physics_process(delta: float) -> void:

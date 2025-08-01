@@ -14,6 +14,8 @@ signal threw_item(item: ThrowableItem, x_direction: float)
 ## Emitted when the [method pick_up_item] is called. Passes the [ThrowableItem]
 ## being picked up.
 signal picked_up_item(item: ThrowableItem)
+## Emitted when the player dies
+signal died()
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0

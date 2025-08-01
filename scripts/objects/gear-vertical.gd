@@ -30,12 +30,12 @@ func tick(delta: float, player_y: float) -> void:
 	else:
 		$Platform.position.y = clamp(player_y - self.global_position.y + PLAYER_RADIUS + 2, TOP_EDGE, BOTTOM_EDGE)
 	
-	# disable the platform if it reaches the bottom of the gear
+	# disable the platform if it reaches the bottom of the gear (player falls off)
 	if $Platform.position.y == 0.0 and $Platform/CollisionShape2D.disabled == false:
-		print("disabled the collision shape")
+		#print("disabled the collision shape")
 		$Platform/CollisionShape2D.disabled = true
 	elif $Platform.position.y != 0.0 and $Platform/CollisionShape2D.disabled == true:
-		print("enabled the collision shape")
+		#print("enabled the collision shape")
 		$Platform/CollisionShape2D.disabled = false
 
 
