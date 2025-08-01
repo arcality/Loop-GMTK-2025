@@ -1,0 +1,98 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvfamxqsy076"]
+
+[ext_resource type="FontFile" uid="uid://b4pkwtl6se78l" path="res://assets/fonts/silkscreen/slkscreb.ttf" id="1_ya2jx"]
+[ext_resource type="Theme" uid="uid://cyxj0ph4ym6nb" path="res://themes/menu-theme.tres" id="2_rh7q5"]
+[ext_resource type="FontFile" uid="uid://bev8tpdhe7pp" path="res://assets/fonts/silkscreen/slkscrb.ttf" id="3_uuq2y"]
+
+[node name="Title-screen" type="Node2D"]
+
+[node name="Title" type="Label" parent="."]
+offset_right = 384.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("1_ya2jx")
+theme_override_font_sizes/font_size = 32
+text = "A Rat In Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_top = 108.0
+offset_right = 384.0
+offset_bottom = 216.0
+theme = ExtResource("2_rh7q5")
+
+[node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Play" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uuq2y")
+theme_override_font_sizes/font_size = 18
+text = "PLAY
+"
+flat = true
+
+[node name="Settings" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uuq2y")
+theme_override_font_sizes/font_size = 18
+text = "SETTINGS"
+flat = true
+
+[node name="Quit" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uuq2y")
+theme_override_font_sizes/font_size = 18
+text = "QUIT
+"
+flat = true
+
+[node name="SettingsMenu" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Play" type="Button" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uuq2y")
+theme_override_font_sizes/font_size = 18
+text = "BACK
+"
+flat = true
+
+[node name="MainVolSlider" type="HSlider" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/MainVolSlider"]
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 0
+offset_top = -4.0
+offset_right = 100.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_uuq2y")
+theme_override_font_sizes/font_size = 8
+text = "Main Volume"
+horizontal_alignment = 1
+
+[node name="MusicVolSlider" type="HSlider" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(100, 24)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/MusicVolSlider"]
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 0
+offset_top = -4.0
+offset_right = 100.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("3_uuq2y")
+theme_override_font_sizes/font_size = 8
+text = "Music Volume"
+horizontal_alignment = 1
