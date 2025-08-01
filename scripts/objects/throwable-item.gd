@@ -2,12 +2,12 @@ class_name ThrowableItem extends CharacterBody2D
 
 signal was_removed()
 
-const throw_speed: float = 500
+const THROW_SPEED: float = 500
 var is_being_thrown: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_collision_layer_value(1, true)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,5 +25,4 @@ func _physics_process(delta: float) -> void:
 
 func throw(x_direction: float):
 	is_being_thrown = true
-	set_collision_layer_value(1, false)
-	velocity.x = x_direction * throw_speed
+	velocity.x = x_direction * THROW_SPEED

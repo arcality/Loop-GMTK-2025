@@ -151,3 +151,6 @@ tile_set = SubResource("TileSet_ktyk1")
 
 [node name="Throwable-item" parent="." instance=ExtResource("3_urp3g")]
 position = Vector2(121, 171)
+
+[node name="Throwable-item2" parent="." instance=ExtResource("3_urp3g")]
+position = Vector2(88, 172)
