@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Loop GMTK Game Jam 2025"
-run/main_scene="uid://cvfamxqsy076"
+run/main_scene="uid://bdtp3vh2drbvj"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,7 @@ Main="*res://scripts/main.gd"
 
 window/size/viewport_width=384
 window/size/viewport_height=216
+window/size/mode=4
 window/stretch/mode="canvas_items"
 
 [file_customization]

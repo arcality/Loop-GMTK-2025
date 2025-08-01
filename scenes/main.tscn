@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://sgd5h7gom1a2"]
+[gd_scene load_steps=4 format=3 uid="uid://bdtp3vh2drbvj"]
 
 [ext_resource type="Script" uid="uid://btuyu8t4n4j5i" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://cetsmkq20c8sy" path="res://scenes/player/player.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cvfamxqsy076" path="res://scenes/menus/title-screen.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
 
 [node name="Player" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(151, 43)
+position = Vector2(188, 171)
+
+[node name="Title-screen" parent="." instance=ExtResource("3_sugp2")]
 
 [connection signal="picked_up_item" from="Player" to="." method="_on_player_picked_up_item"]
 [connection signal="threw_item" from="Player" to="." method="_on_player_threw_item"]
+[connection signal="start_game" from="Title-screen" to="." method="_on_titlescreen_start_game"]
