@@ -11,7 +11,7 @@ const BOTTOM_EDGE: float = 0
 const PLAYER_RADIUS: float = 6.0
 
 ## The velocity the gear will move the player by
-@export var y_velocity: float =  -30
+@export var y_velocity: float =  -40
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
