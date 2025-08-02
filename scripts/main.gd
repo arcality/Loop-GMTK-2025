@@ -3,7 +3,8 @@ extends Node
 const levels: Array[PackedScene] = [
 	preload("res://scenes/levels/level-1.tscn"),
 	preload("res://scenes/levels/level-2.tscn"),
-	preload("res://scenes/levels/level-3.tscn")
+	preload("res://scenes/levels/level-3.tscn"),
+	preload("res://scenes/levels/level-4.tscn")
 ]
 const player_scene = preload("res://scenes/player/player.tscn")
 
