@@ -20,11 +20,13 @@ scale = Vector2(0.015625, 0.015625)
 texture = ExtResource("2_a1pya")
 
 [node name="OnSprite" type="TileMapLayer" parent="."]
+texture_filter = 1
 position = Vector2(-8, 8)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 6, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 7, 0, 0, 0, 0, 0)
 tile_set = ExtResource("3_bxjfm")
 
 [node name="OffSprite" type="TileMapLayer" parent="."]
+texture_filter = 1
 position = Vector2(-8, 8)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 7, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 6, 0, 0, 0, 0, 0)
 tile_set = ExtResource("3_bxjfm")
