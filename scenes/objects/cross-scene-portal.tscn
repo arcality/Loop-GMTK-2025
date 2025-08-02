@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://q0utobdi3rur"]
+
+[ext_resource type="Texture2D" uid="uid://dunsfxq4a4ri8" path="res://assets/art/objects/frame_portals/salmon-frame.png" id="1_eslps"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmcjx"]
+size = Vector2(24, 24)
+
+[node name="Cross-scene-portal" type="Area2D"]
+
+[node name="ActivePortal" type="Sprite2D" parent="."]
+texture = ExtResource("1_eslps")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gmcjx")
