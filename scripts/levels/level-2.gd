@@ -11,6 +11,7 @@ func _process(delta: float) -> void:
 	pass
 
 
+
 func _on_exit_1_body_entered(body: Node2D) -> void:
 	if body is Player:
-		level_progressed.emit(2, 0)
+		level_progressed.emit(1, 1)

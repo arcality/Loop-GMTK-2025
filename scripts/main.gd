@@ -1,7 +1,8 @@
 extends Node
 
 const levels: Array[PackedScene] = [
-	preload("res://scenes/levels/level-1.tscn")
+	preload("res://scenes/levels/level-1.tscn"),
+	preload("res://scenes/levels/level-2.tscn")
 ]
 const player_scene = preload("res://scenes/player/player.tscn")
 
@@ -32,12 +33,14 @@ func load_level_from_number(level_num: int, spawn_pos_index: int) -> void:
 	var index = clamp(level_num - 1, 0, levels.size() - 1)
 	current_level = levels[index].instantiate()
 	
+	player.position = current_level.spawn_positions[spawn_pos_index]
+	
 	assert(current_level is Level)
 	self.add_child(current_level)
+	current_level.level_progressed.connect(load_level_from_number)
 	
 	current_level.player = player
 	
-	player.position = current_level.spawn_positions[spawn_pos_index]
 
 #func remove_level():
 	#remove_child(current_level)
