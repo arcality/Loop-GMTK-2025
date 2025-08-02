@@ -178,8 +178,10 @@ pitch = 0.4
 
 [node name="Moving-platform" parent="." instance=ExtResource("7_rkqj2")]
 position = Vector2(552, 192)
+speed = 1.846
+destination = Vector2(200, 0)
 
 [node name="PendulumPlatform2" parent="." instance=ExtResource("3_aead7")]
-position = Vector2(608, 120)
+position = Vector2(664, 120)
 
 [connection signal="teleport_player" from="Exits/Cross-scene-portal" to="." method="_on_crosssceneportal_teleport_player"]
