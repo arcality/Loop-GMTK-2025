@@ -67,7 +67,8 @@ is_active = true
 position = Vector2(-16, 192)
 
 [node name="Switch" parent="." instance=ExtResource("9_0v50u")]
-position = Vector2(800, 56)
+position = Vector2(776, 56)
+rotation = -1.57079
 
 [node name="Gear-vertical3" parent="." instance=ExtResource("5_ei0ms")]
 position = Vector2(216, 80)
