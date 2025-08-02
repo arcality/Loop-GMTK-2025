@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://v7g445usx7or"]
+[gd_scene load_steps=9 format=4 uid="uid://v7g445usx7or"]
 
 [ext_resource type="Script" uid="uid://dqs5tnjh33eto" path="res://scripts/levels/level-3.gd" id="1_wxl1o"]
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="2_g8sv5"]
 [ext_resource type="PackedScene" uid="uid://d2ib3ad831ik1" path="res://scenes/objects/moving-platform.tscn" id="3_smlxm"]
-[ext_resource type="PackedScene" uid="uid://cy1tv8k4syhjb" path="res://scripts/objects/spikes.tscn" id="4_x5sbd"]
+[ext_resource type="PackedScene" uid="uid://cy1tv8k4syhjb" path="res://scenes/objects/spikes.tscn" id="4_x5sbd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_smlxm"]
 texture = ExtResource("2_g8sv5")
@@ -141,12 +141,15 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_smlxm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smlxm"]
+size = Vector2(4, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5sbd"]
 size = Vector2(4, 32)
 
 [node name="Level-3" type="Node2D"]
 script = ExtResource("1_wxl1o")
 camera_max = Vector2(192, 324)
-spawn_positions = Array[Vector2]([Vector2(32, 48)])
+spawn_positions = Array[Vector2]([Vector2(32, 48), Vector2(32, 400)])
 
 [node name="Layers" type="Node2D" parent="."]
 
@@ -170,7 +173,7 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit2"]
-shape = SubResource("RectangleShape2D_smlxm")
+shape = SubResource("RectangleShape2D_x5sbd")
 
 [node name="Moving-platform" parent="." instance=ExtResource("3_smlxm")]
 position = Vector2(129, 68)

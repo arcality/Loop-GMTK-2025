@@ -4,7 +4,7 @@ var player_is_on_gear: bool = false
 var player: Player
 
 ## The topmost position of the platform. This is used to clamp its position
-const TOP_EDGE: float = -24
+const TOP_EDGE: float = -32
 ## The bottommost position of the platform. This is used to clamp its position
 const BOTTOM_EDGE: float = 0
 

@@ -18,4 +18,4 @@ func _on_exit_1_body_entered(body: Node2D) -> void:
 
 func _on_exit_2_body_entered(body: Node2D) -> void:
 	if body is Player:
-		level_progressed.emit(3, 0)
+		level_progressed.emit(4, 0)
