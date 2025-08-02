@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="2_f6wur"]
 [ext_resource type="PackedScene" uid="uid://c34okirlxd1p4" path="res://scenes/objects/gear-vertical.tscn" id="3_avta3"]
 [ext_resource type="PackedScene" uid="uid://cy1tv8k4syhjb" path="res://scenes/objects/spikes.tscn" id="4_rjepb"]
+[ext_resource type="PackedScene" uid="uid://ckvsvy1qhbian" path="res://scenes/background/parallax-bg-generic.tscn" id="5_0fjhd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avta3"]
 texture = ExtResource("2_f6wur")
@@ -214,6 +215,8 @@ position = Vector2(99, 18)
 
 [node name="Spikes8" parent="." instance=ExtResource("4_rjepb")]
 position = Vector2(148, 13)
+
+[node name="Parallax-bg-generic" parent="." instance=ExtResource("5_0fjhd")]
 
 [connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
 [connection signal="body_entered" from="Exits/Exit2" to="." method="_on_exit_2_body_entered"]

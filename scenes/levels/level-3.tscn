@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://v7g445usx7or"]
+[gd_scene load_steps=11 format=4 uid="uid://v7g445usx7or"]
 
 [ext_resource type="Script" uid="uid://dqs5tnjh33eto" path="res://scripts/levels/level-3.gd" id="1_wxl1o"]
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="2_g8sv5"]
 [ext_resource type="PackedScene" uid="uid://d2ib3ad831ik1" path="res://scenes/objects/moving-platform.tscn" id="3_smlxm"]
 [ext_resource type="PackedScene" uid="uid://cy1tv8k4syhjb" path="res://scenes/objects/spikes.tscn" id="4_x5sbd"]
 [ext_resource type="PackedScene" uid="uid://dob74cv8susg5" path="res://scenes/objects/frame-portal.tscn" id="5_orn5u"]
+[ext_resource type="PackedScene" uid="uid://ckvsvy1qhbian" path="res://scenes/background/parallax-bg-generic.tscn" id="6_tkmqy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_smlxm"]
 texture = ExtResource("2_g8sv5")
@@ -231,6 +232,8 @@ position = Vector2(-140, -263)
 
 [node name="InactivePortal" parent="LowerPortal" index="2"]
 visible = false
+
+[node name="Parallax-bg-generic" parent="." instance=ExtResource("6_tkmqy")]
 
 [connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
 [connection signal="body_entered" from="Exits/Exit2" to="." method="_on_exit_2_body_entered"]

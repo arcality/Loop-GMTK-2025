@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckvsvy1qhbian"]
+
+[ext_resource type="Texture2D" uid="uid://c5iy5ee3tmp8" path="res://assets/art/backgrounds/bg-generic.png" id="1_y1pcs"]
+[ext_resource type="Texture2D" uid="uid://boco1av8s60x5" path="res://assets/art/foregrounds/gear-1.png" id="2_omj8i"]
+[ext_resource type="Texture2D" uid="uid://ncarbcjpa7u0" path="res://assets/art/foregrounds/gear-3.png" id="3_6vsyc"]
+[ext_resource type="Texture2D" uid="uid://c51o8qienhylo" path="res://assets/art/foregrounds/gear-4.png" id="4_u6g3p"]
+
+[node name="Parallax-bg-generic" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Main Background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(384, 216)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Main Background"]
+position = Vector2(192, 108)
+texture = ExtResource("1_y1pcs")
+
+[node name="Gears" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(768, 432)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(50, 54)
+texture = ExtResource("2_omj8i")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(101, 86)
+texture = ExtResource("3_6vsyc")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(234, 60)
+texture = ExtResource("4_u6g3p")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(273, 38)
+texture = ExtResource("3_6vsyc")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(220, 1)
+texture = ExtResource("2_omj8i")
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(500, 103)
+texture = ExtResource("3_6vsyc")
+
+[node name="Sprite2D7" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(398, 46)
+texture = ExtResource("4_u6g3p")
+
+[node name="Sprite2D8" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(355, 209)
+texture = ExtResource("3_6vsyc")
+
+[node name="Sprite2D9" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(388, 241)
+texture = ExtResource("4_u6g3p")
+
+[node name="Sprite2D12" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(630, 38)
+texture = ExtResource("3_6vsyc")
+
+[node name="Sprite2D13" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(663, 70)
+texture = ExtResource("4_u6g3p")
+
+[node name="Sprite2D10" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(755, 190)
+texture = ExtResource("2_omj8i")
+
+[node name="Sprite2D11" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(457, 60)
+texture = ExtResource("2_omj8i")
+
+[node name="Sprite2D14" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(49, 295)
+texture = ExtResource("2_omj8i")
+
+[node name="Sprite2D15" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(100, 327)
+texture = ExtResource("3_6vsyc")
+
+[node name="Sprite2D16" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(233, 301)
+texture = ExtResource("4_u6g3p")
+
+[node name="Sprite2D17" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(272, 279)
+texture = ExtResource("3_6vsyc")
+
+[node name="Sprite2D18" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(219, 242)
+texture = ExtResource("2_omj8i")
+
+[node name="Sprite2D19" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(499, 344)
+texture = ExtResource("3_6vsyc")
+
+[node name="Sprite2D20" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(397, 287)
+texture = ExtResource("4_u6g3p")
+
+[node name="Sprite2D21" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(370, 432)
+texture = ExtResource("4_u6g3p")
+
+[node name="Sprite2D22" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(629, 279)
+texture = ExtResource("3_6vsyc")
+
+[node name="Sprite2D23" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(662, 311)
+texture = ExtResource("4_u6g3p")
+
+[node name="Sprite2D24" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(754, 431)
+texture = ExtResource("2_omj8i")
+
+[node name="Sprite2D25" type="Sprite2D" parent="ParallaxBackground/Gears"]
+position = Vector2(456, 301)
+texture = ExtResource("2_omj8i")
