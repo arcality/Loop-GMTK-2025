@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdtp3vh2drbvj"]
 
 [ext_resource type="Script" uid="uid://btuyu8t4n4j5i" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="AudioStream" uid="uid://5k2hmuq3xkgy" path="res://assets/audio/music/game jam thingy clock - the actual song.wav" id="3_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://b8shli1h3vstd" path="res://assets/audio/music/game jam thingy clock - the actual song.ogg" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cvfamxqsy076" path="res://scenes/menus/title-screen.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node"]
