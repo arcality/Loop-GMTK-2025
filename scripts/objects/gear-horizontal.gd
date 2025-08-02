@@ -2,6 +2,7 @@ class_name GearHorizontal extends StaticBody2D
 
 ## represents the velocity
 @export var spin_velocity: float = 60
+@export var pitch: float = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
