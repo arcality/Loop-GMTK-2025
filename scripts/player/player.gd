@@ -17,8 +17,9 @@ signal picked_up_item(item: ThrowableItem)
 ## Emitted when the player dies
 signal died()
 
-const SPEED = 150.0
+const SPEED = 170.0
 const JUMP_VELOCITY = -300.0
+const ACCELERATION = 1500.0
 
 ## Stores the x-component of the direction for a thrown object.
 var x_direction: float = 1.0
@@ -31,14 +32,19 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+	if Input.is_action_just_released("jump") and velocity.y < 0:
+		velocity.y = clamp(velocity.y + 50, 0, INF)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction != 0.0:
 		x_direction = direction
-	if direction:
-		velocity.x = direction * SPEED
+	if direction < 0:
+		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta) if velocity.x <= 0 else 0
+	elif direction > 0:
+		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta) if velocity.x >= 0 else 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
