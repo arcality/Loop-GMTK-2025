@@ -19,6 +19,8 @@ var current_level: Level
 @onready var camera_max: Vector2 = Vector2(window_width/2, window_height/2)
 @onready var camera_min: Vector2 = Vector2(window_width/2, window_height/2)
 
+var loop_counter: int = 0
+
 func _init() -> void:
 	pass
 
@@ -62,6 +64,16 @@ func load_level_from_number(level_num: int, spawn_pos_index: int) -> void:
 #func remove_level():
 	#remove_child(current_level)
 
+func respawn() -> void:
+	loop_counter += 1
+	
+	player.can_tp = true
+	call_deferred("load_level_from_number", starting_level_number, 0)
+	
+	$AudioStreamPlayer.stop()
+	$AudioStreamPlayer.play()
+	$TimeLimitTimer.start()
+
 
 func _on_player_threw_item(item: ThrowableItem, x_direction: float) -> void:
 	add_child(item)
@@ -73,8 +85,9 @@ func _on_player_picked_up_item(item: ThrowableItem) -> void:
 	current_level.remove_child(item)
 
 func _on_player_died() -> void:
-	call_deferred("load_level_from_number", starting_level_number, 0)
-	player.can_tp = true
+	#call_deferred("load_level_from_number", starting_level_number, 0)
+	#player.can_tp = true
+	respawn()
 
 
 func _on_level_progressed(next_level: int, spawn_pos_index: int) -> void:
@@ -89,8 +102,15 @@ func _on_titlescreen_start_game() -> void:
 	player.threw_item.connect(_on_player_threw_item)
 	player.died.connect(_on_player_died)
 	
-	call_deferred("load_level_from_number", starting_level_number, 0)
-	
-	$AudioStreamPlayer.play()
+	respawn()
+	#call_deferred("load_level_from_number", starting_level_number, 0)
+	#
+	#$AudioStreamPlayer.play()
+	#
+	#$TimeLimitTimer.start()
 
 	
+
+
+func _on_time_limit_timer_timeout() -> void:
+	respawn()
