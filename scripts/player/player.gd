@@ -47,10 +47,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("throw") and held_item != null:
+	if event.is_action_pressed("interact") and held_item != null:
 		throw_item()
-	elif event.is_action_pressed("throw") and held_item == null:
-		pick_up_item()
+	elif event.is_action_pressed("interact") and held_item == null:
+		interact()
 
 ## Emits [signal threw_item] using the [member held_item] and
 ## [member x_direction]. Also sets [member held_item] to null.
@@ -60,7 +60,7 @@ func throw_item():
 
 ## Emits [signal picked_up_item] passing the first [ThrowableItem] in range
 ## through the signal.
-func pick_up_item():
+func interact():
 	for i in $InteractRange.get_overlapping_bodies():
 		if i is ThrowableItem:
 			if i.is_being_thrown == false:
