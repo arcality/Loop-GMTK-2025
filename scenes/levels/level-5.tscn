@@ -218,6 +218,7 @@ position = Vector2(192, 126)
 [connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
 [connection signal="body_entered" from="Exits/Exit2" to="." method="_on_exit_2_body_entered"]
 [connection signal="switched" from="Switch" to="." method="_on_switch_switched"]
+[connection signal="switched" from="Switch2" to="." method="_on_switch_2_switched"]
 
 [editable path="Exits/Exit2"]
 [editable path="FramePortal"]

@@ -24,3 +24,7 @@ func _on_switch_switched(is_on: bool) -> void:
 func _on_exit_2_body_entered(body: Node2D) -> void:
 	if body is Player and $Exits/Exit2.is_active:
 		level_progressed.emit(6, 0)
+
+
+func _on_switch_2_switched(is_on: bool) -> void:
+	$Exits/Exit2.is_active = is_on
