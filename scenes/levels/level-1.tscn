@@ -165,6 +165,7 @@ position = Vector2(88, 172)
 position = Vector2(285, 192)
 scale = Vector2(2, 2)
 angular_velocity = -10.0
+pitch = 0.7
 
 [node name="Gear-horizontal" parent="." instance=ExtResource("5_ieimj")]
 position = Vector2(51, 194)

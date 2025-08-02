@@ -5,7 +5,7 @@ class_name GearPlatform extends StaticBody2D
 		angular_velocity = value
 		constant_angular_velocity = value
 
-@export var pitch: float = 1.0
+@export var pitch: float = 0.7
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
