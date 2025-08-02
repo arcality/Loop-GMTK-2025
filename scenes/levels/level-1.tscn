@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c4wj1mom22q"]
+[gd_scene load_steps=11 format=4 uid="uid://c4wj1mom22q"]
 
 [ext_resource type="Script" uid="uid://d3jbihb5tqfap" path="res://scripts/levels/level-1.gd" id="1_ktyk1"]
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="2_eeqru"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b0l1sixy7j445" path="res://scenes/objects/gear-horizontal.tscn" id="5_ieimj"]
 [ext_resource type="PackedScene" uid="uid://c34okirlxd1p4" path="res://scenes/objects/gear-vertical.tscn" id="6_a1qmq"]
 [ext_resource type="PackedScene" uid="uid://d2ib3ad831ik1" path="res://scenes/objects/moving-platform.tscn" id="7_wubvj"]
+[ext_resource type="PackedScene" uid="uid://cucnixstb2sbf" path="res://scenes/objects/switch.tscn" id="8_wejd8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqru"]
 texture = ExtResource("2_eeqru")
@@ -151,7 +152,7 @@ spawn_positions = Array[Vector2]([Vector2(190, 170), Vector2(0, 0)])
 [node name="Layers" type="Node2D" parent="."]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Layers"]
-tile_map_data = PackedByteArray("AAAMAA0AAwABAAEAAAANAA0AAwABAAEAAAAOAA0AAwABAAEAAAAPAA0AAwABAAEAAAALAA0AAwABAAEAAAAKAA0AAwABAAEAAAAJAA0AAwABAAEAAAAIAA0AAwABAAEAAAAHAA0AAwABAAEAAAAGAA0AAwABAAEAAAAFAA0AAwABAAEAAAAQAA0AAwABAAEAAAARAA0AAwABAAEAAAAEAA0AAwABAAEAAAADAA0AAwABAAEAAAACAA0AAwABAAEAAAABAA0AAwABAAEAAAAAAA0AAwABAAEAAAASAA0AAwABAAEAAAATAA0AAwABAAEAAAAUAA0AAwABAAEAAAAVAA0AAwABAAEAAAAWAA0AAwABAAEAAAAXAA0AAwABAAEAAAAUAAwAAwABAAEAAAAVAAwAAwABAAEAAAAWAAwAAwABAAEAAAAXAAwAAwABAAEAAAAXAAsAAwABAAEAAAAWAAsAAwABAAEAAAAVAAsAAwABAAEAAAAUAAsAAwABAAEAAAATAAsAAwABAAEAAAASAAsAAwABAAEAAAASAAwAAwABAAEAAAATAAwAAwABAAEAAAARAAwAAwABAAEAAAAQAAwAAwABAAEAAAAQAAsAAwABAAEAAAARAAsAAwABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAMAA0AAwABAAEAAAANAA0AAwABAAEAAAAOAA0AAwABAAEAAAAPAA0AAwABAAEAAAALAA0AAwABAAEAAAAKAA0AAwABAAEAAAAJAA0AAwABAAEAAAAIAA0AAwABAAEAAAAHAA0AAwABAAEAAAAGAA0AAwABAAEAAAAFAA0AAwABAAEAAAAQAA0AAwABAAEAAAARAA0AAwABAAEAAAAEAA0AAwABAAEAAAADAA0AAwABAAEAAAACAA0AAwABAAEAAAABAA0AAwABAAEAAAAAAA0AAwABAAEAAAASAA0AAwABAAEAAAATAA0AAwABAAEAAAAUAA0AAwABAAEAAAAVAA0AAwABAAEAAAAWAA0AAwABAAEAAAAXAA0AAwABAAEAAAAUAAwAAwABAAEAAAAVAAwAAwABAAEAAAAWAAwAAwABAAEAAAAXAAwAAwABAAEAAAAXAAsAAwABAAEAAAAWAAsAAwABAAEAAAAVAAsAAwABAAEAAAAUAAsAAwABAAEAAAATAAsAAwABAAEAAAATAAwAAwABAAEAAAATAAoAAwABAAEAAAAUAAoAAwABAAEAAAAVAAoAAwABAAEAAAAWAAoAAwABAAEAAAAXAAoAAwABAAEAAAA=")
 tile_set = SubResource("TileSet_ktyk1")
 
 [node name="Throwable-item" parent="." instance=ExtResource("3_urp3g")]
@@ -161,7 +162,9 @@ position = Vector2(121, 171)
 position = Vector2(88, 172)
 
 [node name="GearPlatform" parent="." instance=ExtResource("4_gl321")]
-position = Vector2(289, 150)
+position = Vector2(285, 192)
+scale = Vector2(2, 2)
+angular_velocity = -10.0
 
 [node name="Gear-horizontal" parent="." instance=ExtResource("5_ieimj")]
 position = Vector2(51, 194)
@@ -172,3 +175,8 @@ y_velocity = 30.0
 
 [node name="Moving-platform" parent="." instance=ExtResource("7_wubvj")]
 position = Vector2(147, 111)
+
+[node name="Switch" parent="." instance=ExtResource("8_wejd8")]
+position = Vector2(207, 207)
+
+[connection signal="switched" from="Switch" to="." method="_on_switch_switched"]
