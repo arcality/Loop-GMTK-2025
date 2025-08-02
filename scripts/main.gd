@@ -5,7 +5,8 @@ const levels: Array[PackedScene] = [
 	preload("res://scenes/levels/level-2.tscn"),
 	preload("res://scenes/levels/level-3.tscn"),
 	preload("res://scenes/levels/level-4.tscn"),
-	preload("res://scenes/levels/level-5.tscn")
+	preload("res://scenes/levels/level-5.tscn"),
+	preload("res://scenes/levels/level-6.tscn")
 ]
 const player_scene = preload("res://scenes/player/player.tscn")
 

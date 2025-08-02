@@ -1,14 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://q0utobdi3rur"]
+[gd_scene load_steps=5 format=3 uid="uid://q0utobdi3rur"]
 
 [ext_resource type="Texture2D" uid="uid://dunsfxq4a4ri8" path="res://assets/art/objects/frame_portals/salmon-frame.png" id="1_eslps"]
+[ext_resource type="Script" uid="uid://bnoqjqd4clr8d" path="res://scripts/objects/cross-scene-portal.gd" id="1_gmcjx"]
+[ext_resource type="Texture2D" uid="uid://ckwy6vthxi234" path="res://assets/art/objects/frame_portals/empty-frame.png" id="2_x13yh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmcjx"]
 size = Vector2(24, 24)
 
 [node name="Cross-scene-portal" type="Area2D"]
+collision_mask = 32
+script = ExtResource("1_gmcjx")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gmcjx")
+
+[node name="InactivePortal" type="Sprite2D" parent="."]
+texture = ExtResource("2_x13yh")
 
 [node name="ActivePortal" type="Sprite2D" parent="."]
 texture = ExtResource("1_eslps")
 
-[node name="Hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_gmcjx")
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
