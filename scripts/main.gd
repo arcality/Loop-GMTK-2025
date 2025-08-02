@@ -7,8 +7,8 @@ const levels: Array[PackedScene] = [
 ]
 const player_scene = preload("res://scenes/player/player.tscn")
 
-var window_width = get_viewport().size.x
-var window_height = get_viewport().size.y
+@onready var window_width = get_viewport().size.x
+@onready var window_height = get_viewport().size.y
 
 var player: Player
 var current_level: Level
