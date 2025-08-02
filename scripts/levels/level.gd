@@ -20,3 +20,12 @@ signal level_progressed(next_level: int, spawn_pos_index: int)
 
 ## Stores a reference to the player. To be updated by the main scene
 @onready var player: Player
+
+## Add all children of this type to this array so that they can be 
+## correctly ticked
+@onready var vertical_gears: Array[GearVertical]
+
+
+func _physics_process(delta: float) -> void:
+	for g in vertical_gears:
+		g.tick(delta, player.position.y)
