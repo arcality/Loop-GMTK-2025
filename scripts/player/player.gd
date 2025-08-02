@@ -24,6 +24,9 @@ const ACCELERATION = 1500.0
 ## Stores the x-component of the direction for a thrown object.
 var x_direction: float = 1.0
 
+## Stores teleport state of the player
+var can_tp = true
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
