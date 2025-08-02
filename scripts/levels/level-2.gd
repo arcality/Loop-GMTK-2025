@@ -18,7 +18,8 @@ func _on_exit_1_body_entered(body: Node2D) -> void:
 
 
 func _on_switch_switched(is_on: bool) -> void:
-	$GearPlatform.angular_velocity *= -1
+	#$GearPlatform.angular_velocity *= -1
+	$GearPlatform.change_direction()
 
 
 func _on_exit_2_body_entered(body: Node2D) -> void:
