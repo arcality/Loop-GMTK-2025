@@ -339,7 +339,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"throw",
-"speed": 30.0
+"speed": 40.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -370,6 +370,8 @@ shape = SubResource("CircleShape2D_lvxji")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_myrg7")
-animation = &"hold"
+animation = &"throw"
+frame = 11
+frame_progress = 1.0
 
 [connection signal="area_shape_entered" from="HurtBox" to="." method="_on_hurt_box_area_shape_entered"]
