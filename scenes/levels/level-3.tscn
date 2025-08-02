@@ -149,7 +149,7 @@ size = Vector2(4, 32)
 [node name="Level-3" type="Node2D"]
 script = ExtResource("1_wxl1o")
 camera_max = Vector2(192, 324)
-spawn_positions = Array[Vector2]([Vector2(32, 48), Vector2(32, 400)])
+spawn_positions = Array[Vector2]([Vector2(32, 48), Vector2(32, 324)])
 
 [node name="Layers" type="Node2D" parent="."]
 
