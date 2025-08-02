@@ -16,4 +16,9 @@ bus = &"MUSIC"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(192, 108)
 
+[node name="TimeLimitTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
 [connection signal="start_game" from="Title-screen" to="." method="_on_titlescreen_start_game"]
+[connection signal="timeout" from="TimeLimitTimer" to="." method="_on_time_limit_timer_timeout"]
