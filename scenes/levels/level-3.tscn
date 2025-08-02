@@ -141,7 +141,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_smlxm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smlxm"]
-size = Vector2(4, 48)
+size = Vector2(4, 32)
 
 [node name="Level-3" type="Node2D"]
 script = ExtResource("1_wxl1o")
@@ -162,6 +162,14 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit1"]
+shape = SubResource("RectangleShape2D_smlxm")
+
+[node name="Exit2" type="Area2D" parent="Exits"]
+position = Vector2(2, 320)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit2"]
 shape = SubResource("RectangleShape2D_smlxm")
 
 [node name="Moving-platform" parent="." instance=ExtResource("3_smlxm")]
@@ -203,3 +211,4 @@ position = Vector2(257, 367)
 position = Vector2(278, 364)
 
 [connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
+[connection signal="body_entered" from="Exits/Exit2" to="." method="_on_exit_2_body_entered"]
