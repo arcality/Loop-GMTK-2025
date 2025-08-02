@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://raldw24cmwme"]
+[gd_scene load_steps=6 format=3 uid="uid://raldw24cmwme"]
 
 [ext_resource type="Script" uid="uid://6gtpfabwoa0t" path="res://scripts/objects/throwable-item.gd" id="1_5ad30"]
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="2_twlt0"]
+[ext_resource type="TileSet" uid="uid://dhbkxihst4aan" path="res://assets/art/tile_map/tile_set.tres" id="3_1kqjc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ad30"]
-radius = 2.5
+radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_twlt0"]
-radius = 6.0
 
 [node name="Throwable-item" type="CharacterBody2D"]
 collision_layer = 2
@@ -27,5 +27,10 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange"]
 shape = SubResource("CircleShape2D_twlt0")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(8, 8)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 3, 0, 4, 0, 0, 0)
+tile_set = ExtResource("3_1kqjc")
 
 [connection signal="body_entered" from="InteractRange" to="." method="_on_interact_range_body_entered"]
