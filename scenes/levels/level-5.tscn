@@ -162,17 +162,17 @@ position = Vector2(382, 112)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit1"]
 shape = SubResource("RectangleShape2D_jat2j")
 
-[node name="FramePortal" parent="Exits" instance=ExtResource("4_jat2j")]
+[node name="Exit2" parent="Exits" instance=ExtResource("4_jat2j")]
 position = Vector2(192.358, 176.54)
 
-[node name="DestinationPoint" parent="Exits/FramePortal" index="1"]
+[node name="DestinationPoint" parent="Exits/Exit2" index="1"]
 position = Vector2(0, 0)
 
 [node name="Spikes" parent="." instance=ExtResource("2_dreyy")]
-position = Vector2(56, 114)
+position = Vector2(64, 64)
 
 [node name="Spikes2" parent="." instance=ExtResource("2_dreyy")]
-position = Vector2(22, 115)
+position = Vector2(16, 64)
 
 [node name="Spikes3" parent="." instance=ExtResource("2_dreyy")]
 position = Vector2(139, 166)
@@ -211,8 +211,9 @@ position = Vector2(-208, 64)
 position = Vector2(311, 59)
 
 [connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
-[connection signal="body_entered" from="Exits/FramePortal" to="." method="_on_frame_portal_body_entered"]
+[connection signal="body_entered" from="Exits/Exit2" to="." method="_on_frame_portal_body_entered"]
+[connection signal="switched" from="Switch" to="." method="_on_switch_switched"]
 
-[editable path="Exits/FramePortal"]
+[editable path="Exits/Exit2"]
 [editable path="FramePortal"]
 [editable path="FramePortal2"]
