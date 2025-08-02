@@ -70,3 +70,7 @@ func interact():
 		if i is Switch:
 			i.switch()
 	
+
+
+func _on_hurt_box_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	died.emit()
