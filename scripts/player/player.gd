@@ -32,6 +32,12 @@ var is_throw_animating: bool = false
 ## Stores the x-component of the direction for a thrown object.
 var x_direction: float = 1.0
 
+## Stores teleport state of the player
+var can_tp = true
+
+func _ready() -> void:
+	can_tp = true
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
