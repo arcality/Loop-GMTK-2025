@@ -16,11 +16,11 @@ func _on_exit_1_body_entered(body: Node2D) -> void:
 		level_progressed.emit(4, 1)
 
 
-func _on_frame_portal_body_entered(body: Node2D) -> void:
-	if body is Player:
-		level_progressed.emit(6, 0)
-
-
 func _on_switch_switched(is_on: bool) -> void:
 	$FramePortal.is_active = is_on
 	$FramePortal2.is_active = is_on
+
+
+func _on_exit_2_body_entered(body: Node2D) -> void:
+	if body is Player and $Exits/Exit2.is_active:
+		level_progressed.emit(6, 0)

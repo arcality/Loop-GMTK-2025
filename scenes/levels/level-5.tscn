@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://cosi38v5v5nu7"]
+[gd_scene load_steps=10 format=4 uid="uid://cosi38v5v5nu7"]
 
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="1_iciir"]
 [ext_resource type="Script" uid="uid://oi4oyjqhp0ar" path="res://scripts/levels/level-5.gd" id="1_v5ubj"]
 [ext_resource type="PackedScene" uid="uid://cy1tv8k4syhjb" path="res://scenes/objects/spikes.tscn" id="2_dreyy"]
 [ext_resource type="PackedScene" uid="uid://cucnixstb2sbf" path="res://scenes/objects/switch.tscn" id="3_jat2j"]
 [ext_resource type="PackedScene" uid="uid://dob74cv8susg5" path="res://scenes/objects/frame-portal.tscn" id="4_jat2j"]
+[ext_resource type="PackedScene" uid="uid://raldw24cmwme" path="res://scenes/objects/throwable-item.tscn" id="6_8ltht"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ai8i6"]
 texture = ExtResource("1_iciir")
@@ -138,7 +139,8 @@ texture = ExtResource("1_iciir")
 7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_dreyy"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_ai8i6")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jat2j"]
@@ -169,10 +171,10 @@ position = Vector2(192.358, 176.54)
 position = Vector2(0, 0)
 
 [node name="Spikes" parent="." instance=ExtResource("2_dreyy")]
-position = Vector2(64, 64)
+position = Vector2(56, 112)
 
 [node name="Spikes2" parent="." instance=ExtResource("2_dreyy")]
-position = Vector2(16, 64)
+position = Vector2(24, 112)
 
 [node name="Spikes3" parent="." instance=ExtResource("2_dreyy")]
 position = Vector2(139, 166)
@@ -210,8 +212,11 @@ position = Vector2(-208, 64)
 [node name="Switch2" parent="." instance=ExtResource("3_jat2j")]
 position = Vector2(311, 59)
 
+[node name="Throwable-item" parent="." instance=ExtResource("6_8ltht")]
+position = Vector2(192, 126)
+
 [connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
-[connection signal="body_entered" from="Exits/Exit2" to="." method="_on_frame_portal_body_entered"]
+[connection signal="body_entered" from="Exits/Exit2" to="." method="_on_exit_2_body_entered"]
 [connection signal="switched" from="Switch" to="." method="_on_switch_switched"]
 
 [editable path="Exits/Exit2"]
