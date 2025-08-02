@@ -9,11 +9,11 @@ signal switched(is_on: bool)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if is_on:
-
-		$Sprite2D.modulate = Color.GREEN
+		$OnSprite.show()
+		$OffSprite.hide()
 	else:
-
-		$Sprite2D.modulate = Color.RED
+		$OffSprite.show()
+		$OnSprite.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,8 +25,10 @@ func _process(delta: float) -> void:
 func switch() -> void:
 	if is_on:
 		is_on = false
-		$Sprite2D.modulate = Color.RED
+		$OffSprite.show()
+		$OnSprite.hide()
 	else:
 		is_on = true
-		$Sprite2D.modulate = Color.GREEN
+		$OnSprite.show()
+		$OffSprite.hide()
 	switched.emit(is_on)
