@@ -63,6 +63,21 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func _process(delta: float) -> void:
+	if x_direction < 0.0 and !$AnimatedSprite2D.flip_h:
+		$AnimatedSprite2D.flip_h = true
+	elif x_direction > 0.0 and $AnimatedSprite2D.flip_h:
+		$AnimatedSprite2D.flip_h = false
+	if is_on_floor():
+		if Input.get_axis("left", "right") == 0:
+			if held_item != null:
+				$AnimatedSprite2D.play("hold")
+			else:
+				$AnimatedSprite2D.play("idle")
+		else:
+			$AnimatedSprite2D.play("run")
+	else:
+		$AnimatedSprite2D.play("jump")
 
 func start_jump_buffer() -> void:
 	is_jump_buffered = true
