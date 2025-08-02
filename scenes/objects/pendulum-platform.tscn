@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://mdypyhnh7hr3"]
+[gd_scene load_steps=4 format=4 uid="uid://mdypyhnh7hr3"]
 
 [ext_resource type="Script" uid="uid://gtyeetj6ttx8" path="res://scripts/objects/pendulum-platform.gd" id="1_7v0cw"]
-[ext_resource type="Texture2D" uid="uid://cmaq7oo4oxfco" path="res://assets/art/foregrounds/gear-5.png" id="2_hr31p"]
+[ext_resource type="TileSet" uid="uid://dhbkxihst4aan" path="res://assets/art/tile_map/tile_set.tres" id="2_hr31p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hr31p"]
 radius = 16.0
@@ -14,5 +14,10 @@ script = ExtResource("1_7v0cw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 shape = SubResource("CircleShape2D_hr31p")
 
-[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
-texture = ExtResource("2_hr31p")
+[node name="BallThing" type="TileMapLayer" parent="AnimatableBody2D"]
+tile_map_data = PackedByteArray("AAD/////AAAGAAUAAAD//wAAAAAGAAYAAAAAAP//AAAHAAUAAAAAAAAAAAAHAAYAAAA=")
+tile_set = ExtResource("2_hr31p")
+
+[node name="Rod" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//wAAAAAGAAEAAAD//wEAAAAGAAIAAAD//wIAAAAGAAMAAAAAAAAAAAAHAAEAAAAAAAEAAAAHAAIAAAAAAAIAAAAHAAMAAAA=")
+tile_set = ExtResource("2_hr31p")
