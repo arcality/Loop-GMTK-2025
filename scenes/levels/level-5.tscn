@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cosi38v5v5nu7"]
+[gd_scene load_steps=9 format=4 uid="uid://cosi38v5v5nu7"]
 
 [ext_resource type="Script" uid="uid://oi4oyjqhp0ar" path="res://scripts/levels/level-5.gd" id="1_v5ubj"]
 [ext_resource type="TileSet" uid="uid://dhbkxihst4aan" path="res://assets/art/tile_map/tile_set.tres" id="2_xow1m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://q0utobdi3rur" path="res://scenes/objects/cross-scene-portal.tscn" id="3_xow1m"]
 [ext_resource type="PackedScene" uid="uid://dob74cv8susg5" path="res://scenes/objects/frame-portal.tscn" id="4_jat2j"]
 [ext_resource type="PackedScene" uid="uid://raldw24cmwme" path="res://scenes/objects/throwable-item.tscn" id="6_8ltht"]
+[ext_resource type="PackedScene" uid="uid://ckvsvy1qhbian" path="res://scenes/background/parallax-bg-generic.tscn" id="7_xow1m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jat2j"]
 size = Vector2(4, 32)
@@ -53,6 +54,9 @@ rotation = -1.57079
 
 [node name="Throwable-item" parent="." instance=ExtResource("6_8ltht")]
 position = Vector2(192, 126)
+
+[node name="Parallax-bg-generic" parent="." instance=ExtResource("7_xow1m")]
+position = Vector2(16.7511, 128.196)
 
 [connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
 [connection signal="teleport_player" from="Exits/Exit2" to="." method="_on_exit_2_teleport_player"]
