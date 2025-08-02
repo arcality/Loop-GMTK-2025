@@ -24,5 +24,5 @@ func _on_body_entered(body: Node2D) -> void:
 	# if able to tp, set can_tp to false, wait, then set back to true
 	body.can_tp = false;
 	body.set_position($DestinationPoint.global_position)
-	await get_tree().create_timer(1.00).timeout
+	await get_tree().create_timer(0.25).timeout
 	body.can_tp = true
