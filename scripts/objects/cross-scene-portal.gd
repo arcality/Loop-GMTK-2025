@@ -21,6 +21,9 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	print("teleport player")
+	# if something other than a player entered, return
+	if not (body is Player) : return
+	
 	# if frame not active, return
 	if not is_active : return
 	
@@ -31,5 +34,5 @@ func _on_body_entered(body: Node2D) -> void:
 	body.can_tp = false;
 	#body.set_position($DestinationPoint.global_position)
 	teleport_player.emit()
-	await get_tree().create_timer(0.25).timeout
-	body.can_tp = true
+	body.get_tree().create_timer(0.25).timeout.connect(body._on_portal_timer_timeout)
+	#body.can_tp = true
