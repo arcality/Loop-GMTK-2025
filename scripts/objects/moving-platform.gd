@@ -1,7 +1,7 @@
 class_name MovingPlatform extends Node2D
 
 ## Speed it takes for the platform to get to its destination, in seconds.
-@export var speed: float = 1
+@export var speed: float = 0.92307692
 
 ## A [Vector2] representing the destination of the moving platform before it
 ## moves back.
