@@ -23,8 +23,11 @@ const ACCELERATION := 1500.0
 
 const JUMP_BUFFER_TIME := 0.2
 
+## @deprecated
 var is_coyote: bool = false
+
 var is_jump_buffered: bool = false
+var is_throw_animating: bool = false
 
 ## Stores the x-component of the direction for a thrown object.
 var x_direction: float = 1.0
@@ -60,9 +63,24 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta) if velocity.x >= 0 else 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
 
+func _process(delta: float) -> void:
+	if !is_throw_animating:
+		if x_direction < 0.0 and !$AnimatedSprite2D.flip_h:
+			$AnimatedSprite2D.flip_h = true
+		elif x_direction > 0.0 and $AnimatedSprite2D.flip_h:
+			$AnimatedSprite2D.flip_h = false
+		if is_on_floor():
+			if Input.get_axis("left", "right") == 0:
+				if held_item != null:
+					$AnimatedSprite2D.play("hold")
+				else:
+					$AnimatedSprite2D.play("idle")
+			else:
+				$AnimatedSprite2D.play("run")
+		else:
+			$AnimatedSprite2D.play("jump")
 
 func start_jump_buffer() -> void:
 	is_jump_buffered = true
@@ -92,6 +110,9 @@ func _input(event: InputEvent) -> void:
 func throw_item():
 	threw_item.emit(held_item, x_direction)
 	held_item = null
+	$AnimatedSprite2D.play("throw")
+	is_throw_animating = true
+	$AnimatedSprite2D.connect("animation_finished", _on_start_throw_animation)
 
 ## Emits [signal picked_up_item] passing the first [ThrowableItem] in range
 ## through the signal.
@@ -108,3 +129,6 @@ func interact():
 
 func _on_hurt_box_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	died.emit()
+
+func _on_start_throw_animation() -> void:
+	is_throw_animating = false
