@@ -33,7 +33,6 @@ func _ready() -> void:
 	#load_level_number(starting_level_number)
 	pass
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if player != null:
