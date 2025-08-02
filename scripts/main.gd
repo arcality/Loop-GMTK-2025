@@ -53,6 +53,10 @@ func load_level_from_number(level_num: int, spawn_pos_index: int) -> void:
 	camera_max = current_level.camera_max
 	camera_min = current_level.camera_min
 	
+	var x_dest: float = clamp(player.position.x, camera_min.x, camera_max.x)
+	var y_dest: float = clamp(player.position.y, camera_min.y, camera_max.y)
+	$Camera2D.position = Vector2(x_dest, y_dest)
+	
 
 #func remove_level():
 	#remove_child(current_level)
