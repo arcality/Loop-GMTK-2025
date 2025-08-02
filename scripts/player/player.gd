@@ -21,7 +21,7 @@ const SPEED := 170.0
 const JUMP_VELOCITY := -300.0
 const ACCELERATION := 1500.0
 
-const JUMP_BUFFER_TIME := 0.15
+const JUMP_BUFFER_TIME := 0.2
 
 var is_coyote: bool = false
 var is_jump_buffered: bool = false
@@ -44,8 +44,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	
-	if Input.is_action_just_released("jump") and velocity.y < 0:
-		velocity.y = clamp(velocity.y + 50, 0, INF)
+	if !Input.is_action_pressed("jump") and velocity.y < 0:
+		velocity.y = clamp(velocity.y, 0, INF)
 	
 		
 	
