@@ -165,11 +165,10 @@ shape = SubResource("RectangleShape2D_f6wur")
 
 [node name="Gear-vertical" parent="." instance=ExtResource("3_avta3")]
 position = Vector2(232, 127)
-y_velocity = 40.0
+y_velocity = 30.0
 
 [node name="Gear-vertical2" parent="." instance=ExtResource("3_avta3")]
 position = Vector2(122, 82)
-y_velocity = -40.0
 
 [node name="Spikes" parent="." instance=ExtResource("4_rjepb")]
 position = Vector2(271, 197)
