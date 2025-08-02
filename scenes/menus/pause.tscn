@@ -74,22 +74,22 @@ layout_mode = 0
 offset_right = 231.0
 offset_bottom = 144.0
 
-[node name="MainMenu" type="VBoxContainer" parent="PanelContainer"]
+[node name="MainButtons" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="Resume" type="Button" parent="PanelContainer/MainMenu"]
+[node name="Resume" type="Button" parent="PanelContainer/MainButtons"]
 layout_mode = 2
 text = "Resume"
 
-[node name="Restart Loop" type="Button" parent="PanelContainer/MainMenu"]
+[node name="Restart Loop" type="Button" parent="PanelContainer/MainButtons"]
 layout_mode = 2
 text = "Restart Loop"
 
-[node name="Settings" type="Button" parent="PanelContainer/MainMenu"]
+[node name="Settings" type="Button" parent="PanelContainer/MainButtons"]
 layout_mode = 2
 text = "Settings"
 
-[node name="Quit" type="Button" parent="PanelContainer/MainMenu"]
+[node name="Quit" type="Button" parent="PanelContainer/MainButtons"]
 layout_mode = 2
 text = "Quit"
 
@@ -165,7 +165,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_yyyho")
 }
 
-[connection signal="pressed" from="PanelContainer/MainMenu/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PanelContainer/MainMenu/Restart Loop" to="." method="_on_restart_loop_pressed"]
-[connection signal="pressed" from="PanelContainer/MainMenu/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="PanelContainer/MainMenu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/MainButtons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/MainButtons/Restart Loop" to="." method="_on_restart_loop_pressed"]
+[connection signal="pressed" from="PanelContainer/MainButtons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="PanelContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/SettingsMenu/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="PanelContainer/SettingsMenu/MainVolSlider" to="." method="_on_main_vol_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/SettingsMenu/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/SettingsMenu/SfxVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]

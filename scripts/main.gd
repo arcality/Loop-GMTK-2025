@@ -71,7 +71,6 @@ func load_level_from_number(level_num: int, spawn_pos_index: int) -> void:
 
 func respawn() -> void:
 	loop_counter += 1
-	
 	player.can_tp = true
 	call_deferred("load_level_from_number", starting_level_number, 0)
 	
