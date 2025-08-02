@@ -73,6 +73,8 @@ func _on_player_picked_up_item(item: ThrowableItem) -> void:
 
 func _on_player_died() -> void:
 	call_deferred("load_level_from_number", starting_level_number, 0)
+	player.can_tp = true
+
 
 func _on_level_progressed(next_level: int, spawn_pos_index: int) -> void:
 	call_deferred("load_level_from_number", next_level, spawn_pos_index)

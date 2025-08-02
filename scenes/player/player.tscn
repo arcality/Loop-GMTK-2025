@@ -9,13 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://bn2em11sj4sgi" path="res://assets/art/player/rat-throwing.png" id="7_0owmy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
-radius = 12.0
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
-radius = 27.0
+radius = 22.0227
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
-radius = 12.0
+radius = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yj68g"]
 atlas = ExtResource("3_75vfm")
@@ -369,6 +369,7 @@ collision_mask = 16
 shape = SubResource("CircleShape2D_lvxji")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -6)
 sprite_frames = SubResource("SpriteFrames_myrg7")
 animation = &"throw"
 frame = 11
