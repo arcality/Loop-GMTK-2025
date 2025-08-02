@@ -61,9 +61,12 @@ func throw_item():
 ## Emits [signal picked_up_item] passing the first [ThrowableItem] in range
 ## through the signal.
 func pick_up_item():
-	for i in $PickUpRange.get_overlapping_bodies():
+	for i in $InteractRange.get_overlapping_bodies():
 		if i is ThrowableItem:
 			if i.is_being_thrown == false:
 				held_item = i
 				picked_up_item.emit(i)
 				break
+		if i is Switch:
+			i.switch()
+	
