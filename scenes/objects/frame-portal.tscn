@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dob74cv8susg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_623d7"]
+
+[node name="FramePortal" type="Area2D"]
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_623d7")
+
+[node name="DestinationPoint" type="Marker2D" parent="."]
+position = Vector2(21, 0)
