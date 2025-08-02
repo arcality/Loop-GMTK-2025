@@ -66,9 +66,12 @@ func _on_player_threw_item(item: ThrowableItem, x_direction: float) -> void:
 func _on_player_picked_up_item(item: ThrowableItem) -> void:
 	current_level.remove_child(item)
 
+func _on_player_died() -> void:
+	call_deferred("load_level_from_number", starting_level_number, 0)
 
 func _on_level_progressed(next_level: int, spawn_pos_index: int) -> void:
 	call_deferred("load_level_from_number", next_level, spawn_pos_index)
+	
 
 
 func _on_titlescreen_start_game() -> void:
@@ -76,6 +79,7 @@ func _on_titlescreen_start_game() -> void:
 	self.add_child(player)
 	player.picked_up_item.connect(_on_player_picked_up_item)
 	player.threw_item.connect(_on_player_threw_item)
+	player.died.connect(_on_player_died)
 	
 	call_deferred("load_level_from_number", starting_level_number, 0)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cetsmkq20c8sy"]
+[gd_scene load_steps=6 format=3 uid="uid://cetsmkq20c8sy"]
 
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="1_8afob"]
 [ext_resource type="Script" uid="uid://cfskfeik1l6kr" path="res://scripts/player/player.gd" id="1_dovo2"]
@@ -7,6 +7,8 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmlin"]
 radius = 27.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 9
@@ -25,3 +27,12 @@ collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange"]
 shape = SubResource("CircleShape2D_gmlin")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_lvxji")
+
+[connection signal="area_shape_entered" from="HurtBox" to="." method="_on_hurt_box_area_shape_entered"]

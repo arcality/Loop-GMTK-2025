@@ -66,6 +66,7 @@ jump={
 2d_physics/layer_2="throwable"
 2d_physics/layer_3="switch"
 2d_physics/layer_4="exit"
+2d_physics/layer_5="hurty hurty"
 
 [rendering]
 
