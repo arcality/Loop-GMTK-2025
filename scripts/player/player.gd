@@ -17,9 +17,14 @@ signal picked_up_item(item: ThrowableItem)
 ## Emitted when the player dies
 signal died()
 
-const SPEED = 170.0
-const JUMP_VELOCITY = -300.0
-const ACCELERATION = 1500.0
+const SPEED := 170.0
+const JUMP_VELOCITY := -300.0
+const ACCELERATION := 1500.0
+
+const JUMP_BUFFER_TIME := 0.15
+
+var is_coyote: bool = false
+var is_jump_buffered: bool = false
 
 ## Stores the x-component of the direction for a thrown object.
 var x_direction: float = 1.0
@@ -32,10 +37,18 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
+	elif Input.is_action_just_pressed("jump") and !is_on_floor() and !is_jump_buffered:
+		start_jump_buffer()
+	
+	if is_jump_buffered and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+	
+	
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = clamp(velocity.y + 50, 0, INF)
-
+	
+		
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
@@ -49,6 +62,22 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func start_jump_buffer() -> void:
+	is_jump_buffered = true
+	var timer: Timer = Timer.new()
+	add_child(timer)
+	timer.one_shot = true
+	timer.add_to_group("jump_timers")
+	timer.start(JUMP_BUFFER_TIME)
+	timer.connect("timeout", _on_jump_buffer_timer_timeout)
+
+func _on_jump_buffer_timer_timeout() -> void:
+	is_jump_buffered = false
+	for t in get_tree().get_nodes_in_group("jump_timers"):
+		t.queue_free()
+	
 
 
 
@@ -76,7 +105,6 @@ func interact():
 		if i is Switch:
 			i.switch()
 	
-
 
 func _on_hurt_box_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	died.emit()
