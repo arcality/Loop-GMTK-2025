@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cucnixstb2sbf"]
+[gd_scene load_steps=5 format=3 uid="uid://cucnixstb2sbf"]
 
 [ext_resource type="Script" uid="uid://b12ld5qpasdwi" path="res://scripts/objects/switch.gd" id="1_j58ic"]
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="2_a1pya"]
+[ext_resource type="TileSet" uid="uid://dhbkxihst4aan" path="res://assets/art/tile_map/tile_set.tres" id="3_bxjfm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xsv1j"]
 radius = 9.0
@@ -17,3 +18,15 @@ shape = SubResource("CircleShape2D_xsv1j")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.015625, 0.015625)
 texture = ExtResource("2_a1pya")
+
+[node name="OnSprite" type="TileMapLayer" parent="."]
+texture_filter = 1
+position = Vector2(-8, 8)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 7, 0, 0, 0, 0, 0)
+tile_set = ExtResource("3_bxjfm")
+
+[node name="OffSprite" type="TileMapLayer" parent="."]
+texture_filter = 1
+position = Vector2(-8, 8)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 6, 0, 0, 0, 0, 0)
+tile_set = ExtResource("3_bxjfm")

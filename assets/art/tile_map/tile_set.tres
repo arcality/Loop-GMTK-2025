@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2ib3ad831ik1"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dhbkxihst4aan"]
 
-[ext_resource type="Script" uid="uid://c7x3xlajcquxt" path="res://scripts/objects/moving-platform.gd" id="1_ivpna"]
-[ext_resource type="Texture2D" uid="uid://cmaby16xmkpj3" path="res://assets/art/tile_map/tilemap.png" id="3_8v36r"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8v36r"]
-size = Vector2(32, 14)
+[ext_resource type="Texture2D" uid="uid://cmaby16xmkpj3" path="res://assets/art/tile_map/tilemap.png" id="1_mefv2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ieldo"]
-texture = ExtResource("3_8v36r")
+texture = ExtResource("1_mefv2")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -52,23 +48,9 @@ texture = ExtResource("3_8v36r")
 6:6/0 = 0
 7:6/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_o6hki"]
+[resource]
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 physics_layer_1/collision_layer = 16
 physics_layer_1/collision_mask = 16
 sources/0 = SubResource("TileSetAtlasSource_ieldo")
-
-[node name="Moving-platform" type="Node2D"]
-script = ExtResource("1_ivpna")
-
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_8v36r")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="AnimatableBody2D"]
-texture_filter = 1
-tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0)
-tile_set = SubResource("TileSet_o6hki")
