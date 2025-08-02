@@ -135,3 +135,6 @@ func _on_hurt_box_area_shape_entered(area_rid: RID, area: Area2D, area_shape_ind
 
 func _on_start_throw_animation() -> void:
 	is_throw_animating = false
+
+func _on_portal_timer_timeout() -> void:
+	can_tp = true

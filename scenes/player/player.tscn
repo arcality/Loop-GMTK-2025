@@ -369,6 +369,7 @@ collision_mask = 16
 shape = SubResource("CircleShape2D_lvxji")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 position = Vector2(-1, -6)
 sprite_frames = SubResource("SpriteFrames_myrg7")
 animation = &"throw"

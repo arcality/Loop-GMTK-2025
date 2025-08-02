@@ -11,18 +11,20 @@ const BOTTOM_EDGE: float = 0
 const PLAYER_RADIUS: float = 6.0
 
 ## The velocity the gear will move the player by
-@export var y_velocity: float =  -30
+@export var y_velocity: float =  -40.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 func _physics_process(delta: float) -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$AnimatedSprite2D.play("default", y_velocity/4.0, y_velocity > 0)
+	print(-1 * y_velocity/4.0)
+
 
 func tick(delta: float, player_y: float) -> void:
 	if player_is_on_gear:
@@ -47,3 +49,12 @@ func _on_collision_area_body_entered(body: Node2D) -> void:
 func _on_collision_area_body_exited(body: Node2D) -> void:
 	if body is Player:
 		player_is_on_gear = false
+
+func change_direction() -> void:
+	var temp_y_vel = y_velocity * -1
+	var tween2: Tween = create_tween()
+	#tween2.tween_property($AudioStreamPlayer2D, "pitch_scale", pitch * 0.5, 1).set_trans(Tween.TRANS_QUAD)
+	#tween2.tween_property($AudioStreamPlayer2D, "pitch_scale", pitch, 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	
+	var tween: Tween = create_tween()
+	tween.tween_property(self, "y_velocity", temp_y_vel, 1)
