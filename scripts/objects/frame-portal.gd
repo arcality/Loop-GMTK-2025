@@ -1,7 +1,23 @@
 extends Area2D
 
 
+@export var is_active = false
+
+
+func _process(delta: float) -> void:
+	# if active, show active portal. If not, show inactive portal
+	if is_active :
+		$ActivePortal.visible = true
+		$InactivePortal.visible = false
+	else :
+		$ActivePortal.visible = false
+		$InactivePortal.visible = true
+
+
 func _on_body_entered(body: Node2D) -> void:
+	# if frame not active, return
+	if not is_active : return
+	
 	# if not able to tp, return
 	if not body.can_tp == true : return
 	
