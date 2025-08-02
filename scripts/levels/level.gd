@@ -5,9 +5,10 @@ class_name Level extends Node2D
 ## Offers basic functionality for all levels and has variables to specify
 ## how the level is handled by the main script.
 
-## Used to specify the axes on which the camera should move to follow the
-## player. (Meant to function as a vector of booleans)
-@export var camera_movement_axes: Vector2i = Vector2i(0,0)
+## The maximum position (x,y) that the camera can go to.
+@export var camera_max: Vector2 = Vector2(192, 108)
+## The minimum position (x,y) that the camera can go to.
+@export var camera_min: Vector2 = Vector2(192, 108)
 
 ## Stores the different spawn positions for when a [Player] enters the room.
 ## Each individual [Level] will emit the correct spawn index of the next Level when

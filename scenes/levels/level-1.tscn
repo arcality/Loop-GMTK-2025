@@ -144,7 +144,7 @@ size = Vector2(4, 32)
 
 [node name="Level-1" type="Node2D"]
 script = ExtResource("1_ktyk1")
-spawn_positions = Array[Vector2]([Vector2(190, 170), Vector2(370, 170)])
+spawn_positions = Array[Vector2]([Vector2(190, 164), Vector2(360, 164)])
 
 [node name="Layers" type="Node2D" parent="."]
 
