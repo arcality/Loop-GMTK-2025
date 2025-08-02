@@ -377,3 +377,4 @@ frame = 11
 frame_progress = 1.0
 
 [connection signal="area_shape_entered" from="HurtBox" to="." method="_on_hurt_box_area_shape_entered"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
