@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://di6qsnp8sox0m"]
 
 [ext_resource type="Script" uid="uid://k2v4vnh2w3ic" path="res://scripts/objects/gear-platform.gd" id="1_6vo10"]
-[ext_resource type="Texture2D" uid="uid://ceyytak344xtk" path="res://assets/art/objects/27.png" id="1_up30g"]
+[ext_resource type="Texture2D" uid="uid://bagye3t6xbicj" path="res://assets/art/foregrounds/gear-2.png" id="2_0yxco"]
 [ext_resource type="AudioStream" uid="uid://b1uc7u6hwh7mi" path="res://assets/audio/sfx/gear sound-001.ogg" id="3_0yxco"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6vo10"]
-radius = 14.0357
+radius = 30.0
 
 [node name="GearPlatform" type="StaticBody2D"]
 collision_layer = 3
@@ -17,7 +17,7 @@ shape = SubResource("CircleShape2D_6vo10")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_up30g")
+texture = ExtResource("2_0yxco")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_0yxco")
