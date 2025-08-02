@@ -13,4 +13,7 @@ script = ExtResource("1_o5qli")
 stream = ExtResource("3_jyhfs")
 bus = &"MUSIC"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(192, 108)
+
 [connection signal="start_game" from="Title-screen" to="." method="_on_titlescreen_start_game"]
