@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://c4wj1mom22q"]
+[gd_scene load_steps=9 format=4 uid="uid://c4wj1mom22q"]
 
 [ext_resource type="Script" uid="uid://d3jbihb5tqfap" path="res://scripts/levels/level-1.gd" id="1_ktyk1"]
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="2_eeqru"]
 [ext_resource type="PackedScene" uid="uid://raldw24cmwme" path="res://scenes/objects/throwable-item.tscn" id="2_urp3g"]
 [ext_resource type="PackedScene" uid="uid://ckvsvy1qhbian" path="res://scenes/background/parallax-bg-generic.tscn" id="4_gl321"]
+[ext_resource type="PackedScene" uid="uid://mdypyhnh7hr3" path="res://scenes/objects/pendulum-platform.tscn" id="5_ieimj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqru"]
 texture = ExtResource("2_eeqru")
@@ -168,5 +169,8 @@ collision_mask = 8
 shape = SubResource("RectangleShape2D_eeqru")
 
 [node name="Parallax-bg-generic" parent="." instance=ExtResource("4_gl321")]
+
+[node name="PendulumPlatform" parent="." instance=ExtResource("5_ieimj")]
+position = Vector2(280, 96)
 
 [connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
