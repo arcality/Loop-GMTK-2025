@@ -25,3 +25,8 @@ func _physics_process(delta: float) -> void:
 func throw(x_direction: float):
 	is_being_thrown = true
 	velocity.x = x_direction * THROW_SPEED
+
+
+func _on_interact_range_body_entered(body: Node2D) -> void:
+	if body is Switch:
+		body.switch()

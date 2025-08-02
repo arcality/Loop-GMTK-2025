@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://se6rxd4gj570"]
+[gd_scene load_steps=9 format=4 uid="uid://se6rxd4gj570"]
 
 [ext_resource type="Script" uid="uid://xwuk1ybojvty" path="res://scripts/levels/level-4.gd" id="1_ak2de"]
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="2_f6wur"]
@@ -143,9 +143,12 @@ sources/0 = SubResource("TileSetAtlasSource_avta3")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6wur"]
 size = Vector2(4, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjepb"]
+size = Vector2(4, 48)
+
 [node name="Level-4" type="Node2D"]
 script = ExtResource("1_ak2de")
-spawn_positions = Array[Vector2]([Vector2(360, 128)])
+spawn_positions = Array[Vector2]([Vector2(360, 128), Vector2(32, 176)])
 
 [node name="Layers" type="Node2D" parent="."]
 
@@ -162,6 +165,12 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit1"]
 shape = SubResource("RectangleShape2D_f6wur")
+
+[node name="Exit2" type="Area2D" parent="Exits"]
+position = Vector2(2, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit2"]
+shape = SubResource("RectangleShape2D_rjepb")
 
 [node name="Gear-vertical" parent="." instance=ExtResource("3_avta3")]
 position = Vector2(232, 127)
@@ -185,6 +194,18 @@ position = Vector2(203, 196)
 [node name="Spikes5" parent="." instance=ExtResource("4_rjepb")]
 position = Vector2(180, 197)
 
+[node name="Spikes9" parent="." instance=ExtResource("4_rjepb")]
+position = Vector2(158, 197)
+
+[node name="Spikes10" parent="." instance=ExtResource("4_rjepb")]
+position = Vector2(135, 196)
+
+[node name="Spikes11" parent="." instance=ExtResource("4_rjepb")]
+position = Vector2(113, 197)
+
+[node name="Spikes12" parent="." instance=ExtResource("4_rjepb")]
+position = Vector2(91, 196)
+
 [node name="Spikes6" parent="." instance=ExtResource("4_rjepb")]
 position = Vector2(121, 12)
 
@@ -195,3 +216,4 @@ position = Vector2(99, 18)
 position = Vector2(148, 13)
 
 [connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
+[connection signal="body_entered" from="Exits/Exit2" to="." method="_on_exit_2_body_entered"]
