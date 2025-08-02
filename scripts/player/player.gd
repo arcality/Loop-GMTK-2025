@@ -132,6 +132,9 @@ func interact():
 
 func _on_hurt_box_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	died.emit()
+	
+func _on_hurt_box_body_entered(body: Node2D) -> void:
+	died.emit()
 
 func _on_start_throw_animation() -> void:
 	is_throw_animating = false
