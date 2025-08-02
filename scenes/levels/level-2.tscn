@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://cvxyvegp0layy"]
+[gd_scene load_steps=10 format=4 uid="uid://cvxyvegp0layy"]
 
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="1_a4ndn"]
 [ext_resource type="Script" uid="uid://b24qtcagoaujl" path="res://scripts/levels/level-2.gd" id="1_o6t8s"]
 [ext_resource type="PackedScene" uid="uid://di6qsnp8sox0m" path="res://scenes/objects/gear-platform.tscn" id="3_f3p6n"]
 [ext_resource type="PackedScene" uid="uid://cucnixstb2sbf" path="res://scenes/objects/switch.tscn" id="3_tn3yb"]
+[ext_resource type="PackedScene" uid="uid://ckvsvy1qhbian" path="res://scenes/background/parallax-bg-generic.tscn" id="5_5d0y8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6t8s"]
 texture = ExtResource("1_a4ndn")
@@ -180,6 +181,8 @@ position = Vector2(17, 128)
 position = Vector2(280, 152)
 scale = Vector2(2, 2)
 angular_velocity = -10.0
+
+[node name="Parallax-bg-generic" parent="." instance=ExtResource("5_5d0y8")]
 
 [connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
 [connection signal="body_entered" from="Exits/Exit2" to="." method="_on_exit_2_body_entered"]
