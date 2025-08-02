@@ -39,7 +39,7 @@ shape = SubResource("RectangleShape2D_rjepb")
 
 [node name="Gear-vertical" parent="." instance=ExtResource("3_avta3")]
 position = Vector2(232, 128)
-y_velocity = 30.0
+y_velocity = 40.0
 
 [node name="Gear-vertical2" parent="." instance=ExtResource("3_avta3")]
 position = Vector2(120, 80)
