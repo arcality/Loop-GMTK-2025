@@ -64,3 +64,5 @@ func _on_titlescreen_start_game() -> void:
 	player.threw_item.connect(_on_player_threw_item)
 	
 	load_level_from_number(starting_level_number, 0)
+	
+	$AudioStreamPlayer.play()
