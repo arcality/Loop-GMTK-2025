@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://cvxyvegp0layy"]
+[gd_scene load_steps=8 format=4 uid="uid://cvxyvegp0layy"]
 
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="1_a4ndn"]
 [ext_resource type="Script" uid="uid://b24qtcagoaujl" path="res://scripts/levels/level-2.gd" id="1_o6t8s"]
+[ext_resource type="PackedScene" uid="uid://di6qsnp8sox0m" path="res://scenes/objects/gear-platform.tscn" id="3_f3p6n"]
+[ext_resource type="PackedScene" uid="uid://cucnixstb2sbf" path="res://scenes/objects/switch.tscn" id="3_tn3yb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6t8s"]
 texture = ExtResource("1_a4ndn")
@@ -160,4 +162,13 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit1"]
 shape = SubResource("RectangleShape2D_a4ndn")
 
+[node name="Switch" parent="." instance=ExtResource("3_tn3yb")]
+position = Vector2(17, 128)
+
+[node name="GearPlatform" parent="." instance=ExtResource("3_f3p6n")]
+position = Vector2(280, 152)
+scale = Vector2(2, 2)
+angular_velocity = -10.0
+
 [connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
+[connection signal="switched" from="Switch" to="." method="_on_switch_switched"]
