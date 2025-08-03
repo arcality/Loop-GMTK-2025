@@ -24,6 +24,9 @@ var current_level: Level
 @onready var camera_max: Vector2 = Vector2(window_width/2, window_height/2)
 @onready var camera_min: Vector2 = Vector2(window_width/2, window_height/2)
 
+## time limit timer
+@onready var time_limit_timer: Timer = $TimeLimitTimer
+
 var loop_counter: int = 0
 
 func _init() -> void:
@@ -74,6 +77,11 @@ func respawn() -> void:
 	if player == null:
 		return
 	
+	loaded_levels.clear()
+	if not loaded_levels:
+		for level in levels:
+			loaded_levels.append(level.instantiate())
+	
 	loop_counter += 1
 	player.can_tp = true
 	call_deferred("load_level_from_number", starting_level_number, 0)
@@ -93,9 +101,7 @@ func _on_player_picked_up_item(item: ThrowableItem) -> void:
 	current_level.remove_child(item)
 
 func _on_player_died() -> void:
-	#call_deferred("load_level_from_number", starting_level_number, 0)
-	#player.can_tp = true
-	respawn()
+	rewind()
 
 
 func _on_level_progressed(next_level: int, spawn_pos_index: int) -> void:
@@ -113,6 +119,8 @@ func _on_titlescreen_start_game() -> void:
 	if not loaded_levels:
 		for level in levels:
 			loaded_levels.append(level.instantiate())
+			
+	$Hud.visible = true
 	
 	respawn()
 	#call_deferred("load_level_from_number", starting_level_number, 0)
@@ -126,8 +134,37 @@ func _on_titlescreen_start_game() -> void:
 
 func _on_time_limit_timer_timeout() -> void:
 	# play rewind sound, stop all player movement, reverse clock hud
-	respawn()
+	rewind()
+	
+func rewind() -> void:
+	# disable all player interactions
+	player.set_physics_process(false)
+	player.set_process(false)
+	
+	# stop music
+	$AudioStreamPlayer.stop()
+	
+	# play rewind sound
+	$RewindSound.play()
+	
+	#play rewind animation
+	$Camera2D/RewindAnimation.visible = true
+	# reset the sprite back to frame 0 before playing
+	$Camera2D/RewindAnimation.stop()
+	$Camera2D/RewindAnimation.frame = 0
+	$Camera2D/RewindAnimation.play()
+	
+	# when rewind sound is fininshed, then player will unfreeze and respawn
 
 
 func _on_pause_restart_loop() -> void:
+	respawn()
+
+
+func _on_rewind_sound_finished() -> void:
+	# unfreeze and respawn
+	player.set_physics_process(true)
+	player.set_process(true)
+	$Camera2D/RewindAnimation.stop()
+	$Camera2D/RewindAnimation.visible = false
 	respawn()
