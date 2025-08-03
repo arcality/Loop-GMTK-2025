@@ -8,6 +8,7 @@
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_twlt0"]
+radius = 7.0
 
 [node name="Throwable-item" type="CharacterBody2D"]
 collision_layer = 2
