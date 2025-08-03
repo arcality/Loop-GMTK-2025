@@ -216,3 +216,6 @@ func final_cutscene() -> void:
 	await tween.tween_property($AudioStreamPlayer, "volume_db", -80.0, 3).set_trans(Tween.TRANS_QUAD).finished
 	$AudioStreamPlayer.stop()
 	$FinalCutsceneSong.play()
+	
+	#$StatsScreen.show()
+	#$StatsScreen.set_stats(most_recent_time, total_time)
