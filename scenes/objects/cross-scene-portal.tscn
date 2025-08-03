@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://q0utobdi3rur"]
+[gd_scene load_steps=7 format=3 uid="uid://q0utobdi3rur"]
 
 [ext_resource type="Texture2D" uid="uid://dunsfxq4a4ri8" path="res://assets/art/objects/frame_portals/salmon-frame.png" id="1_eslps"]
 [ext_resource type="Script" uid="uid://bnoqjqd4clr8d" path="res://scripts/objects/cross-scene-portal.gd" id="1_gmcjx"]
 [ext_resource type="Texture2D" uid="uid://ckwy6vthxi234" path="res://assets/art/objects/frame_portals/empty-frame.png" id="2_x13yh"]
+[ext_resource type="AudioStream" uid="uid://bvgd1ctc68vu3" path="res://assets/audio/sfx/frame enter.ogg" id="4_x2n0k"]
+[ext_resource type="AudioStream" uid="uid://bytv7m51pabo2" path="res://assets/audio/sfx/frame activate.ogg" id="5_7jodo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmcjx"]
 size = Vector2(24, 24)
@@ -19,5 +21,14 @@ texture = ExtResource("2_x13yh")
 
 [node name="ActivePortal" type="Sprite2D" parent="."]
 texture = ExtResource("1_eslps")
+
+[node name="Enter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_x2n0k")
+volume_db = 6.278
+bus = &"SFX"
+
+[node name="Activate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7jodo")
+volume_db = 3.962
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

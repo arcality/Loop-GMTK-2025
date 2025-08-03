@@ -17,8 +17,8 @@ func _on_exit_1_body_entered(body: Node2D) -> void:
 
 
 func _on_switch_switched(is_on: bool) -> void:
-	$FramePortal.is_active = is_on
-	$FramePortal2.is_active = is_on
+	$FramePortal.set_is_active(is_on)
+	$FramePortal2.set_is_active(is_on)
 
 
 #func _on_exit_2_body_entered(body: Node2D) -> void:
@@ -27,7 +27,7 @@ func _on_switch_switched(is_on: bool) -> void:
 
 
 func _on_switch_2_switched(is_on: bool) -> void:
-	$Exits/Exit2.is_active = is_on
+	$Exits/Exit2.set_is_active(is_on)
 
 
 func _on_exit_2_teleport_player() -> void:

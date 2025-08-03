@@ -21,8 +21,15 @@ func _on_body_entered(body: Node2D) -> void:
 	# if not able to tp, return
 	if not body.can_tp == true : return
 	
+	
 	# if able to tp, set can_tp to false, wait, then set back to true
+	$Enter.play() # play sfx
 	body.can_tp = false;
 	body.set_position($DestinationPoint.global_position)
 	await get_tree().create_timer(0.25).timeout
 	body.can_tp = true
+
+## Sets the [member is_active] variable and plays the activation sound.
+func set_is_active(value: bool):
+	is_active = value
+	$Activate.play()
