@@ -134,7 +134,7 @@ func _on_titlescreen_start_game() -> void:
 
 func _on_time_limit_timer_timeout() -> void:
 	# play rewind sound, stop all player movement, reverse clock hud
-	rewind()
+	rewind_with_music()
 	
 func rewind() -> void:
 	# disable all player interactions
@@ -156,6 +156,27 @@ func rewind() -> void:
 	
 	# when rewind sound is fininshed, then player will unfreeze and respawn
 
+
+# same thing as rewind, but doesn't stop the music (lets the bell ring out)
+func rewind_with_music() -> void:
+	# disable all player interactions
+	player.set_physics_process(false)
+	player.set_process(false)
+	
+	# stop music
+	#$AudioStreamPlayer.stop()
+	
+	# play rewind sound
+	$RewindSound.play()
+	
+	#play rewind animation
+	$Camera2D/RewindAnimation.visible = true
+	# reset the sprite back to frame 0 before playing
+	$Camera2D/RewindAnimation.stop()
+	$Camera2D/RewindAnimation.frame = 0
+	$Camera2D/RewindAnimation.play()
+	
+	# when rewind sound is fininshed, then player will unfreeze and respawn
 
 func _on_pause_restart_loop() -> void:
 	respawn()
