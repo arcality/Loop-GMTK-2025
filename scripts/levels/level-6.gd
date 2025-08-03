@@ -22,3 +22,7 @@ func _on_switch_switched(is_on: bool) -> void:
 	$"Gear-vertical2".change_direction()
 	$"Gear-vertical3".change_direction()
 	$GearPlatform.change_direction()
+
+
+func _on_crosssceneportal_2_teleport_player() -> void:
+	level_progressed.emit(1, 2)
