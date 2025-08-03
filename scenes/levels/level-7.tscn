@@ -30,6 +30,11 @@ shape = SubResource("RectangleShape2D_s18g8")
 [node name="Parallax-bg-generic" parent="." instance=ExtResource("3_f5s7i")]
 
 [node name="Moving-platform" parent="." instance=ExtResource("4_f5s7i")]
-position = Vector2(144, 96)
+position = Vector2(144, 128)
+destination = Vector2(128, 0)
+
+[node name="Moving-platform2" parent="." instance=ExtResource("4_f5s7i")]
+position = Vector2(272, 96)
+destination = Vector2(-128, 0)
 
 [connection signal="body_entered" from="Node2D/Exit1" to="." method="_on_exit_1_body_entered"]

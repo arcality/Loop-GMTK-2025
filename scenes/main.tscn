@@ -527,7 +527,6 @@ animations = [{
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
-starting_level_number = 7
 
 [node name="Title-screen" parent="." instance=ExtResource("3_sugp2")]
 
@@ -541,7 +540,6 @@ position = Vector2(192, 108)
 [node name="RewindAnimation" type="AnimatedSprite2D" parent="Camera2D"]
 visible = false
 z_index = 4
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_xaipn")
 animation = &"rewind"
 frame = 63
