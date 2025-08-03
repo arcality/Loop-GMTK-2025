@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://bdtp3vh2drbvj"]
+[gd_scene load_steps=83 format=3 uid="uid://bdtp3vh2drbvj"]
 
 [ext_resource type="Script" uid="uid://btuyu8t4n4j5i" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="AudioStream" uid="uid://cacksc1u6ej2p" path="res://assets/audio/music/game jam thingy clock - the actual song-002.ogg" id="3_jyhfs"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://d0uewu6oxp3te" path="res://assets/audio/sfx/reverse sound-004.ogg" id="5_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dnnywhmmw3ue3" path="res://scenes/menus/hud.tscn" id="6_tefeu"]
 [ext_resource type="AudioStream" uid="uid://dcg3umbyscnqm" path="res://assets/audio/music/wizard_sleep.ogg" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://b56vthrn4q2nt" path="res://scenes/menus/stats-screen.tscn" id="9_85g3d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tipki"]
 atlas = ExtResource("4_o6xl0")
@@ -528,7 +529,6 @@ animations = [{
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
-starting_level_number = 7
 
 [node name="Title-screen" parent="." instance=ExtResource("3_sugp2")]
 
@@ -564,6 +564,9 @@ visible = false
 
 [node name="FinalCutsceneSong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_tipki")
+
+[node name="StatsScreen" parent="." instance=ExtResource("9_85g3d")]
+visible = false
 
 [connection signal="start_game" from="Title-screen" to="." method="_on_titlescreen_start_game"]
 [connection signal="timeout" from="TimeLimitTimer" to="." method="_on_time_limit_timer_timeout"]

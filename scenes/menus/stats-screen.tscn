@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://b56vthrn4q2nt"]
+
+[ext_resource type="Script" uid="uid://4d8eiyyi13fl" path="res://scripts/menus/stats-screen.gd" id="1_iltak"]
+[ext_resource type="FontFile" uid="uid://bev8tpdhe7pp" path="res://assets/fonts/silkscreen/slkscrb.ttf" id="2_xb2vn"]
+
+[node name="StatsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iltak")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("2_xb2vn")
+theme_override_font_sizes/font_size = 20
+text = "Statistics"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalTimeTitle" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("2_xb2vn")
+theme_override_font_sizes/font_size = 10
+text = "Final Time:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalTime" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = 88.0
+offset_right = 384.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("2_xb2vn")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalTimeTitle" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = 112.0
+offset_right = 384.0
+offset_bottom = 145.0
+theme_override_fonts/font = ExtResource("2_xb2vn")
+theme_override_font_sizes/font_size = 10
+text = "Total Time:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalTime" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = 136.0
+offset_right = 384.0
+offset_bottom = 169.0
+theme_override_fonts/font = ExtResource("2_xb2vn")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QUIT" type="Button" parent="."]
+top_level = true
+z_index = 2
+layout_mode = 0
+offset_left = 128.0
+offset_top = 184.0
+offset_right = 256.0
+offset_bottom = 209.0
+theme_override_fonts/font = ExtResource("2_xb2vn")
+theme_override_font_sizes/font_size = 20
+text = "QUIT"
+
+[connection signal="pressed" from="QUIT" to="." method="_on_back_pressed"]
