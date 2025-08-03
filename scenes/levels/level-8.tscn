@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://6yah4jahjrtu"]
+[gd_scene load_steps=56 format=4 uid="uid://6yah4jahjrtu"]
 
 [ext_resource type="Script" uid="uid://bmqupy28jyfrk" path="res://scripts/levels/level-8.gd" id="1_uv5m0"]
 [ext_resource type="PackedScene" uid="uid://ckvsvy1qhbian" path="res://scenes/background/parallax-bg-generic.tscn" id="2_3ir2e"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://chda8nxx8hhi6" path="res://assets/art/end_cutscene/wizrat-bed.png" id="6_ostc2"]
 [ext_resource type="Texture2D" uid="uid://cngegpeu2s200" path="res://assets/art/end_cutscene/wizrat-running.png" id="7_nrybq"]
 [ext_resource type="Texture2D" uid="uid://7iohyy14lsdk" path="res://assets/art/end_cutscene/wizrat-awake.png" id="9_cfybs"]
+[ext_resource type="FontFile" uid="uid://bev8tpdhe7pp" path="res://assets/fonts/silkscreen/slkscrb.ttf" id="11_nrybq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhmwl"]
 size = Vector2(73, 42)
@@ -382,8 +383,13 @@ offset_bottom = 40.0
 
 [node name="DialogueLabel" type="Label" parent="UI"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 30.0
+offset_top = 31.0
+offset_right = 355.0
+offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("11_nrybq")
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 

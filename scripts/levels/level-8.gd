@@ -6,9 +6,15 @@ signal cutscene_finished
 @onready var dialogue_label: Label = $UI/DialogueLabel
 
 var _dialogues = [
-	{ text = "TEXT 1", time = 3.0 },
-	{ text = "TEXT 2", time = 4.0 },
-	{ text = "TEXT 3", time = 2.5 },
+	{ text = "Oh goodness, you scared me!", time = 4.0 },
+	{ text = "Wait, who are you?", time = 4.0 },
+	{ text = "Oh no. Were you in here while I was sleeping?", time = 6.0 },
+	{ text = "Oh my! I’m terribly sorry.", time = 4.0 },
+	{ text = "You see, I cast a time repetition spell on my tower every night when I fall asleep,", time = 10.0 },
+	{ text = "so that I can get even more sleep in even less time.", time = 7.0 },
+	{ text = "I never meant to catch a stranger in my tower!", time = 6.0 },
+	{ text = "I never get visitors, so I thought it was safe…", time = 6.0 },
+	{ text = "I hope you’ll forgive an old rat like me for such an unfortunate mishap…", time = 6.0 },
 ]
 
 var speed: float = 60.0 / 65.0
@@ -49,6 +55,8 @@ func start_cutscene() -> void:
 	await sprite.animation_finished
 	print("wake finished")
 	
+	sprite.position.y += 4;
+	
 	var destination = Vector2(384.0/2.0, sprite.position.y)
 	sprite.play("run")
 	var tween: Tween = create_tween()
@@ -63,5 +71,5 @@ func start_cutscene() -> void:
 		await get_tree().create_timer(dlg.time).timeout
 		dialogue_label.visible = false
 	
-	#emit_signal("cutscene_finished")
+	emit_signal("cutscene_finished")
 	
