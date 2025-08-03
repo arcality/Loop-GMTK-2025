@@ -27,7 +27,7 @@ func _on_switch_switched(is_on: bool) -> void:
 
 
 func _on_switch_2_switched(is_on: bool) -> void:
-	$Exits/Exit2.is_active = is_on
+	$Exits/Exit2.set_is_active(is_on)
 
 
 func _on_exit_2_teleport_player() -> void:
