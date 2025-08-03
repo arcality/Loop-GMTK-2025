@@ -76,6 +76,11 @@ func respawn() -> void:
 	if player == null:
 		return
 	
+	loaded_levels.clear()
+	if not loaded_levels:
+		for level in levels:
+			loaded_levels.append(level.instantiate())
+	
 	loop_counter += 1
 	player.can_tp = true
 	call_deferred("load_level_from_number", starting_level_number, 0)
