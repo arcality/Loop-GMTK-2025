@@ -249,7 +249,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2nqvy")
 }],
-"loop": false,
+"loop": true,
 "name": &"run",
 "speed": 12.0
 }, {
@@ -370,7 +370,9 @@ texture = ExtResource("6_ostc2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(281, 160)
 sprite_frames = SubResource("SpriteFrames_ni0p0")
-animation = &"wake"
+animation = &"run"
+frame = 2
+frame_progress = 0.909613
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

@@ -43,17 +43,18 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func start_cutscene() -> void:
 	print("Cutscene start")
-	var tween: Tween = create_tween()
 	
-	# play wake animation
+	## play wake animation
 	sprite.play("wake")
 	await sprite.animation_finished
+	print("wake finished")
 	
-	var distance = (tween_positions[1] - tween_positions[0]).length()
-	var duration = distance / speed
+	var destination = Vector2(384.0/2.0, sprite.position.y)
 	sprite.play("run")
-	tween.tween_property(self, "position", tween_positions[1], duration)
+	var tween: Tween = create_tween()
+	tween.tween_property(sprite, "position", destination, 1)
 	await tween.finished
+	print("done")
 	
 	sprite.play("idle")
 	for dlg in _dialogues:
@@ -62,5 +63,5 @@ func start_cutscene() -> void:
 		await get_tree().create_timer(dlg.time).timeout
 		dialogue_label.visible = false
 	
-	emit_signal("cutscene_finished")
+	#emit_signal("cutscene_finished")
 	

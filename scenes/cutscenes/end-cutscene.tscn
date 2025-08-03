@@ -6,6 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://7iohyy14lsdk" path="res://assets/art/end_cutscene/wizrat-awake.png" id="4_j0tff"]
 [ext_resource type="Texture2D" uid="uid://d0bx6l6c7up2u" path="res://assets/art/end_cutscene/wizrat.png" id="5_se6w4"]
 
+[sub_resource type="Animation" id="Animation_t8e2o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="Animation" id="Animation_2aywn"]
 resource_name = "end"
 length = 12.0
@@ -32,21 +47,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [2, 4]
-}
-
-[sub_resource type="Animation" id="Animation_t8e2o"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5bsfa"]
