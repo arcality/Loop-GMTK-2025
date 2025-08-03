@@ -92,9 +92,14 @@ func _on_player_picked_up_item(item: ThrowableItem) -> void:
 	current_level.remove_child(item)
 
 func _on_player_died() -> void:
-	#call_deferred("load_level_from_number", starting_level_number, 0)
-	#player.can_tp = true
-	respawn()
+	# disable all player interactions
+	player.set_physics_process(false)
+	player.set_process(false)
+	
+	# play rewind sound
+	$RewindSound.play()
+	
+	# when rewind sound is fininshed, then player will unfreeze and respawn
 
 
 func _on_level_progressed(next_level: int, spawn_pos_index: int) -> void:
@@ -129,4 +134,11 @@ func _on_time_limit_timer_timeout() -> void:
 
 
 func _on_pause_restart_loop() -> void:
+	respawn()
+
+
+func _on_rewind_sound_finished() -> void:
+	# unfreeze and respawn
+	player.set_physics_process(true)
+	player.set_process(true)
 	respawn()
