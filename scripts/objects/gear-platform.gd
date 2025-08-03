@@ -22,8 +22,8 @@ func _process(delta: float) -> void:
 func change_direction() -> void:
 	angular_velocity *= -1
 	var tween2: Tween = create_tween()
-	tween2.tween_property($AudioStreamPlayer2D, "pitch_scale", pitch * 0.5, 1).set_trans(Tween.TRANS_QUAD)
-	tween2.tween_property($AudioStreamPlayer2D, "pitch_scale", pitch, 1).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween2.tween_property($AudioStreamPlayer2D, "pitch_scale", pitch * 0.5, 0.5).set_trans(Tween.TRANS_QUAD)
+	tween2.tween_property($AudioStreamPlayer2D, "pitch_scale", pitch, 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "constant_angular_velocity", angular_velocity, 1)

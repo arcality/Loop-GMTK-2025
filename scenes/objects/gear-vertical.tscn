@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://c34okirlxd1p4"]
+[gd_scene load_steps=16 format=3 uid="uid://c34okirlxd1p4"]
 
 [ext_resource type="Script" uid="uid://bvl05nvl3a7o7" path="res://scripts/objects/gear-vertical.gd" id="1_6vgcf"]
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="1_qnwaf"]
 [ext_resource type="Texture2D" uid="uid://b22dwkyry672u" path="res://assets/art/objects/vertical_gear/vert-gear.png" id="3_y66fa"]
+[ext_resource type="AudioStream" uid="uid://b1uc7u6hwh7mi" path="res://assets/audio/sfx/gear sound-001.ogg" id="4_k6ssx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceo4e"]
 size = Vector2(32, 3)
@@ -97,6 +98,10 @@ texture = ExtResource("1_qnwaf")
 sprite_frames = SubResource("SpriteFrames_7j8cl")
 frame = 2
 frame_progress = 0.916798
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_k6ssx")
+volume_db = -1.981
 
 [connection signal="body_entered" from="Platform/CollisionArea" to="." method="_on_collision_area_body_entered"]
 [connection signal="body_exited" from="Platform/CollisionArea" to="." method="_on_collision_area_body_exited"]
