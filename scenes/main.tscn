@@ -27,3 +27,4 @@ one_shot = true
 
 [connection signal="start_game" from="Title-screen" to="." method="_on_titlescreen_start_game"]
 [connection signal="timeout" from="TimeLimitTimer" to="." method="_on_time_limit_timer_timeout"]
+[connection signal="restart_loop" from="PauseLayer/Pause" to="." method="_on_pause_restart_loop"]

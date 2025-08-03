@@ -70,6 +70,9 @@ func load_level_from_number(level_num: int, spawn_pos_index: int) -> void:
 	#remove_child(current_level)
 
 func respawn() -> void:
+	if player == null:
+		return
+	
 	loop_counter += 1
 	player.can_tp = true
 	call_deferred("load_level_from_number", starting_level_number, 0)
@@ -122,4 +125,8 @@ func _on_titlescreen_start_game() -> void:
 
 func _on_time_limit_timer_timeout() -> void:
 	# play rewind sound, stop all player movement, reverse clock hud
+	respawn()
+
+
+func _on_pause_restart_loop() -> void:
 	respawn()

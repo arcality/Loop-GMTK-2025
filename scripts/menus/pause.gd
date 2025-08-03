@@ -1,11 +1,14 @@
 extends Control
 
+signal restart_loop
+
 func _process(delta: float) -> void:
 	testEsc()
 
 func _ready() -> void:
-	hide()               # start hidden
-	# pause_mode = PauseMode.PROCESS
+	hide()
+	print("Pause ready. Main is:", Main)
+	print("Pause sees Main.player as:", Main.player)
 	$Blur.play("RESET")
 
 func resume():
@@ -21,15 +24,13 @@ func pause():
 func testEsc():
 	# is on title screen?
 	var cs = get_tree().current_scene
-	if cs.name == "Title-screen":
+	if cs.name == "title-screen":
 		return
 		
 	if Input.is_action_just_pressed("Escape") and !get_tree().paused:
 		pause()
 	elif Input.is_action_just_pressed("Escape") and get_tree().paused:
 		resume()
-	print("escape pressed past title")
-
 
 
 func _on_resume_pressed() -> void:
@@ -38,7 +39,7 @@ func _on_resume_pressed() -> void:
 
 func _on_restart_loop_pressed() -> void:
 	resume()
-	# Main.respawn()
+	restart_loop.emit()
 
 
 func _on_settings_pressed() -> void:
