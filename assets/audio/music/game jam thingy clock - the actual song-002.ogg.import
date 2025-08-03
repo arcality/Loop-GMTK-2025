@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cacksc1u6ej2p"
+path="res://.godot/imported/game jam thingy clock - the actual song-002.ogg-d5a0eca317a6f0bb0b14e667b26c4215.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/game jam thingy clock - the actual song-002.ogg"
+dest_files=["res://.godot/imported/game jam thingy clock - the actual song-002.ogg-d5a0eca317a6f0bb0b14e667b26c4215.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
