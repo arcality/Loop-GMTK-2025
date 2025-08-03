@@ -7,8 +7,6 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
 	hide()
-	print("Pause ready. Main is:", Main)
-	print("Pause sees Main.player as:", Main.player)
 	$Blur.play("RESET")
 
 func resume():
@@ -22,11 +20,6 @@ func pause():
 	$Blur.play("blur")
 
 func testEsc():
-	# is on title screen?
-	var cs = get_tree().current_scene
-	if cs.name == "title-screen":
-		return
-		
 	if Input.is_action_just_pressed("Escape") and !get_tree().paused:
 		pause()
 	elif Input.is_action_just_pressed("Escape") and get_tree().paused:
