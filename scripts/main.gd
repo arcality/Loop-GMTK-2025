@@ -95,14 +95,7 @@ func _on_player_picked_up_item(item: ThrowableItem) -> void:
 	current_level.remove_child(item)
 
 func _on_player_died() -> void:
-	# disable all player interactions
-	player.set_physics_process(false)
-	player.set_process(false)
-	
-	# play rewind sound
-	$RewindSound.play()
-	
-	# when rewind sound is fininshed, then player will unfreeze and respawn
+	rewind()
 
 
 func _on_level_progressed(next_level: int, spawn_pos_index: int) -> void:
@@ -135,7 +128,20 @@ func _on_titlescreen_start_game() -> void:
 
 func _on_time_limit_timer_timeout() -> void:
 	# play rewind sound, stop all player movement, reverse clock hud
-	respawn()
+	rewind()
+	
+func rewind() -> void:
+	# disable all player interactions
+	player.set_physics_process(false)
+	player.set_process(false)
+	
+	# stop music
+	$AudioStreamPlayer.stop()
+	
+	# play rewind sound
+	$RewindSound.play()
+	
+	# when rewind sound is fininshed, then player will unfreeze and respawn
 
 
 func _on_pause_restart_loop() -> void:
