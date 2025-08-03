@@ -83,7 +83,7 @@ func respawn() -> void:
 
 
 func _on_player_threw_item(item: ThrowableItem, x_direction: float) -> void:
-	add_child(item)
+	current_level.add_child(item)
 	item.position = Vector2($Player.position)
 	item.throw(x_direction)
 
