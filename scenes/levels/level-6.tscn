@@ -72,7 +72,7 @@ rotation = -1.57079
 
 [node name="Gear-vertical3" parent="." instance=ExtResource("5_ei0ms")]
 position = Vector2(216, 80)
-y_velocity = 40.0
+y_velocity = -160.0
 
 [node name="Parallax-bg-generic" parent="." instance=ExtResource("10_2lfrb")]
 
