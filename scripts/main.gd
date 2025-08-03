@@ -35,8 +35,10 @@ func _init() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#load_level_number(starting_level_number)
-	get_viewport().size = Vector2i(384*4,216*4)
-	get_window().move_to_center()
+	
+	#get_viewport().size = Vector2i(384*4,216*4)
+	#get_window().move_to_center()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
