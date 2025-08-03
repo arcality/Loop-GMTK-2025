@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnnywhmmw3ue3"]
+
+[ext_resource type="Script" uid="uid://b23gc5icppsap" path="res://scripts/menus/hud.gd" id="1_8758d"]
+[ext_resource type="Texture2D" uid="uid://cpu101s1t0s1w" path="res://assets/art/hud/clock-1.png" id="2_4bkh1"]
+[ext_resource type="Texture2D" uid="uid://bb623youb86s8" path="res://assets/art/hud/clock-2.png" id="3_2ocfc"]
+[ext_resource type="Texture2D" uid="uid://cjakyipqjorpa" path="res://assets/art/hud/clock-3.png" id="4_xftrt"]
+[ext_resource type="Texture2D" uid="uid://blxca5yc2t8t" path="res://assets/art/hud/clock-4.png" id="5_754qn"]
+[ext_resource type="Texture2D" uid="uid://ckk2x2ehn6m21" path="res://assets/art/hud/clock-5.png" id="6_wt2eo"]
+[ext_resource type="Texture2D" uid="uid://do2daaoesuikr" path="res://assets/art/hud/clock-6.png" id="7_ixmc7"]
+[ext_resource type="Texture2D" uid="uid://doflf6p504mor" path="res://assets/art/hud/clock-7.png" id="8_f4djj"]
+[ext_resource type="Texture2D" uid="uid://rucsq4t7fr2w" path="res://assets/art/hud/clock-8.png" id="9_bq8l5"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_8758d")
+
+[node name="ClockContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 24.0
+grow_horizontal = 0
+
+[node name="Clock-8" type="TextureRect" parent="ClockContainer"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("9_bq8l5")
+
+[node name="Clock-7" type="TextureRect" parent="ClockContainer"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("8_f4djj")
+
+[node name="Clock-6" type="TextureRect" parent="ClockContainer"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("7_ixmc7")
+
+[node name="Clock-5" type="TextureRect" parent="ClockContainer"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("6_wt2eo")
+
+[node name="Clock-4" type="TextureRect" parent="ClockContainer"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("5_754qn")
+
+[node name="Clock-3" type="TextureRect" parent="ClockContainer"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("4_xftrt")
+
+[node name="Clock-2" type="TextureRect" parent="ClockContainer"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("3_2ocfc")
+
+[node name="Clock-1" type="TextureRect" parent="ClockContainer"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("2_4bkh1")
