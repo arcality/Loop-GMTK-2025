@@ -13,6 +13,7 @@ size = Vector2(128, 4)
 
 [node name="Level-7" type="Node2D"]
 script = ExtResource("1_5aolg")
+level_number = 7
 camera_max = Vector2(192, 352)
 spawn_positions = Array[Vector2]([Vector2(232, 424)])
 

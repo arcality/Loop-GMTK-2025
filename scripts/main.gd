@@ -7,7 +7,8 @@ const levels: Array[PackedScene] = [
 	preload("res://scenes/levels/level-4.tscn"),
 	preload("res://scenes/levels/level-5.tscn"),
 	preload("res://scenes/levels/level-6.tscn"),
-	preload("res://scenes/levels/level-7.tscn")
+	preload("res://scenes/levels/level-7.tscn"),
+	preload("res://scenes/levels/level-8.tscn")
 ]
 const player_scene = preload("res://scenes/player/player.tscn")
 
@@ -28,6 +29,8 @@ var current_level: Level
 @onready var time_limit_timer: Timer = $TimeLimitTimer
 
 var loop_counter: int = 0
+var most_recent_time: float = 0.0
+var total_time: float = 0.0
 
 func _init() -> void:
 	pass
@@ -73,6 +76,8 @@ func load_level_from_number(level_num: int, spawn_pos_index: int) -> void:
 	var y_dest: float = clamp(player.position.y, camera_min.y, camera_max.y)
 	$Camera2D.position = Vector2(x_dest, y_dest)
 	
+	if current_level.level_number == 7:
+		pause_timer()
 
 #func remove_level():
 	#remove_child(current_level)
@@ -142,6 +147,8 @@ func _on_time_limit_timer_timeout() -> void:
 	rewind_with_music()
 	
 func rewind() -> void:
+	most_recent_time = 90.0 - $TimeLimitTimer.time_left
+	total_time += 90.0 - $TimeLimitTimer.time_left
 	# disable all player interactions
 	player.set_physics_process(false)
 	player.set_process(false)
@@ -194,3 +201,9 @@ func _on_rewind_sound_finished() -> void:
 	$Camera2D/RewindAnimation.stop()
 	$Camera2D/RewindAnimation.visible = false
 	respawn()
+
+func pause_timer() -> void:
+	print("timer paused")
+	$TimeLimitTimer.paused = true
+	most_recent_time = 90.0 - $TimeLimitTimer.time_left
+	total_time += 90.0 - $TimeLimitTimer.time_left
