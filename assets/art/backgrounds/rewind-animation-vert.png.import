@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xbrmyvkxs757"
-path="res://.godot/imported/rewind-animation.png-4d258a7f70d1f83c65a44c0d4849090a.ctex"
+uid="uid://brejy7ejsm37o"
+path="res://.godot/imported/rewind-animation-vert.png-ca0b71271ce051cb2ee7681b6b2c91ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/backgrounds/rewind-animation.png"
-dest_files=["res://.godot/imported/rewind-animation.png-4d258a7f70d1f83c65a44c0d4849090a.ctex"]
+source_file="res://assets/art/backgrounds/rewind-animation-vert.png"
+dest_files=["res://.godot/imported/rewind-animation-vert.png-ca0b71271ce051cb2ee7681b6b2c91ef.ctex"]
 
 [params]
 
