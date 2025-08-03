@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://6yah4jahjrtu"]
+[gd_scene load_steps=24 format=4 uid="uid://6yah4jahjrtu"]
 
 [ext_resource type="Script" uid="uid://bmqupy28jyfrk" path="res://scripts/levels/level-8.gd" id="1_uv5m0"]
 [ext_resource type="PackedScene" uid="uid://ckvsvy1qhbian" path="res://scenes/background/parallax-bg-generic.tscn" id="2_3ir2e"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://chda8nxx8hhi6" path="res://assets/art/end_cutscene/wizrat-bed.png" id="6_ostc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhmwl"]
-size = Vector2(51, 38)
+size = Vector2(73, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_81gh4"]
 atlas = ExtResource("6_jhmwl")
@@ -108,6 +108,14 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="Animation" id="Animation_ostc2"]
+resource_name = "end-cutscene"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jhmwl"]
+_data = {
+&"end-cutscene": SubResource("Animation_ostc2")
+}
+
 [node name="Level-8" type="Node2D"]
 script = ExtResource("1_uv5m0")
 level_number = 8
@@ -130,7 +138,7 @@ position = Vector2(94, 168)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CutsceneThres" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(280.5, 157)
+position = Vector2(280.5, 155)
 shape = SubResource("RectangleShape2D_jhmwl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -141,6 +149,11 @@ animation = &"sleep"
 [node name="Bed" type="Sprite2D" parent="."]
 position = Vector2(281, 160)
 texture = ExtResource("6_ostc2")
+
+[node name="EndCutscene" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jhmwl")
+}
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
