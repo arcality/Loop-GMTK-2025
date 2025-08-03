@@ -14,3 +14,8 @@ func _process(delta: float) -> void:
 func _on_exit_1_body_entered(body: Node2D) -> void:
 	if body is Player:
 		level_progressed.emit(1, 3)
+
+
+func _on_exit_2_body_entered(body: Node2D) -> void:
+	if body is Player:
+		level_progressed.emit(8, 0)
