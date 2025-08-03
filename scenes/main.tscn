@@ -7,6 +7,7 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_o5qli")
+starting_level_number = 7
 
 [node name="Title-screen" parent="." instance=ExtResource("3_sugp2")]
 
