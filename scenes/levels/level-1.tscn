@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://c4wj1mom22q"]
+[gd_scene load_steps=8 format=4 uid="uid://c4wj1mom22q"]
 
 [ext_resource type="Script" uid="uid://d3jbihb5tqfap" path="res://scripts/levels/level-1.gd" id="1_ktyk1"]
 [ext_resource type="TileSet" uid="uid://dhbkxihst4aan" path="res://assets/art/tile_map/tile_set.tres" id="3_gl321"]
@@ -9,9 +9,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eeqru"]
 size = Vector2(4, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ieimj"]
+size = Vector2(80, 4)
+
 [node name="Level-1" type="Node2D" groups=["levels"]]
 script = ExtResource("1_ktyk1")
-spawn_positions = Array[Vector2]([Vector2(192, 164), Vector2(360, 164), Vector2(48, 48)])
+spawn_positions = Array[Vector2]([Vector2(192, 164), Vector2(360, 164), Vector2(48, 48), Vector2(275, 55)])
 
 [node name="Layers" type="Node2D" parent="."]
 
@@ -29,16 +32,23 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit1"]
 shape = SubResource("RectangleShape2D_eeqru")
 
-[node name="Parallax-bg-generic" parent="." instance=ExtResource("4_gl321")]
-
-[node name="Cross-scene-portal" parent="." instance=ExtResource("4_ieimj")]
+[node name="Cross-scene-portal" parent="Exits" instance=ExtResource("4_ieimj")]
 position = Vector2(48, 48)
 is_active = true
 
-[node name="ActivePortal" parent="Cross-scene-portal" index="2"]
+[node name="ActivePortal" parent="Exits/Cross-scene-portal" index="2"]
 texture = ExtResource("5_a1qmq")
 
-[connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
-[connection signal="teleport_player" from="Cross-scene-portal" to="." method="_on_crosssceneportal_teleport_player"]
+[node name="Exit3" type="Area2D" parent="Exits"]
+position = Vector2(296, 2)
 
-[editable path="Cross-scene-portal"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit3"]
+shape = SubResource("RectangleShape2D_ieimj")
+
+[node name="Parallax-bg-generic" parent="." instance=ExtResource("4_gl321")]
+
+[connection signal="body_entered" from="Exits/Exit1" to="." method="_on_exit_1_body_entered"]
+[connection signal="teleport_player" from="Exits/Cross-scene-portal" to="." method="_on_crosssceneportal_teleport_player"]
+[connection signal="body_entered" from="Exits/Exit3" to="." method="_on_exit_3_body_entered"]
+
+[editable path="Exits/Cross-scene-portal"]
