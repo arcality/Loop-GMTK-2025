@@ -11,7 +11,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jat2j"]
 size = Vector2(4, 32)
 
-[node name="Level-5" type="Node2D"]
+[node name="Level-5" type="Node2D" groups=["levels"]]
 script = ExtResource("1_v5ubj")
 spawn_positions = Array[Vector2]([Vector2(360, 128), Vector2(304, 112)])
 

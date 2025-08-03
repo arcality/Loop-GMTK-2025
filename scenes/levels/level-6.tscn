@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cucnixstb2sbf" path="res://scenes/objects/switch.tscn" id="9_0v50u"]
 [ext_resource type="PackedScene" uid="uid://ckvsvy1qhbian" path="res://scenes/background/parallax-bg-generic.tscn" id="10_2lfrb"]
 
-[node name="Level-6" type="Node2D"]
+[node name="Level-6" type="Node2D" groups=["levels"]]
 script = ExtResource("1_ooxy6")
 camera_max = Vector2(768, 172)
 spawn_positions = Array[Vector2]([Vector2(48, 192)])

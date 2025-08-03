@@ -10,6 +10,9 @@ const levels: Array[PackedScene] = [
 ]
 const player_scene = preload("res://scenes/player/player.tscn")
 
+# this is where level data is saved
+var loaded_levels: Array[Level] = []
+
 @onready var window_width = get_viewport().size.x
 @onready var window_height = get_viewport().size.y
 
@@ -30,7 +33,6 @@ func _ready() -> void:
 	#load_level_number(starting_level_number)
 	pass
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if player != null:
@@ -41,16 +43,18 @@ func _process(delta: float) -> void:
 func load_level_from_number(level_num: int, spawn_pos_index: int) -> void:
 	# ensure we aren't stacking multiple scenes
 	if current_level:
-		current_level.queue_free()
+		remove_child(current_level)
 	
 	var index = clamp(level_num - 1, 0, levels.size() - 1)
-	current_level = levels[index].instantiate()
+	current_level = loaded_levels[index]
 	
 	player.position = current_level.spawn_positions[spawn_pos_index]
 	
 	assert(current_level is Level)
 	self.add_child(current_level)
-	current_level.level_progressed.connect(_on_level_progressed)
+	var cb = Callable(self, "_on_level_progressed")
+	if not current_level.is_connected("level_progressed", cb):
+		current_level.level_progressed.connect(_on_level_progressed)
 	
 	current_level.player = player
 	
@@ -66,8 +70,10 @@ func load_level_from_number(level_num: int, spawn_pos_index: int) -> void:
 	#remove_child(current_level)
 
 func respawn() -> void:
-	loop_counter += 1
+	if player == null:
+		return
 	
+	loop_counter += 1
 	player.can_tp = true
 	call_deferred("load_level_from_number", starting_level_number, 0)
 	
@@ -103,6 +109,10 @@ func _on_titlescreen_start_game() -> void:
 	player.threw_item.connect(_on_player_threw_item)
 	player.died.connect(_on_player_died)
 	
+	if not loaded_levels:
+		for level in levels:
+			loaded_levels.append(level.instantiate())
+	
 	respawn()
 	#call_deferred("load_level_from_number", starting_level_number, 0)
 	#
@@ -114,4 +124,9 @@ func _on_titlescreen_start_game() -> void:
 
 
 func _on_time_limit_timer_timeout() -> void:
+	# play rewind sound, stop all player movement, reverse clock hud
+	respawn()
+
+
+func _on_pause_restart_loop() -> void:
 	respawn()
