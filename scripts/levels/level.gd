@@ -5,6 +5,8 @@ class_name Level extends Node2D
 ## Offers basic functionality for all levels and has variables to specify
 ## how the level is handled by the main script.
 
+## The level number
+@export var level_number: int
 ## The maximum position (x,y) that the camera can go to.
 @export var camera_max: Vector2 = Vector2(192, 108)
 ## The minimum position (x,y) that the camera can go to.
