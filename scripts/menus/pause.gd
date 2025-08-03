@@ -16,6 +16,9 @@ func resume():
 
 func pause():
 	get_tree().paused = true
+	$PanelContainer/SettingsMenu/MainVolSlider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+	$PanelContainer/SettingsMenu/MusicVolSlider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("MUSIC")))
+	$PanelContainer/SettingsMenu/SfxVolSlider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
 	$".".show()
 	$Blur.play("blur")
 
