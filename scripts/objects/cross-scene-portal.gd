@@ -29,10 +29,11 @@ func _on_body_entered(body: Node2D) -> void:
 	if not is_active : return
 	
 	# if not able to tp, return
-	if not body.can_tp == true : return
+	if not body.can_tp == true:
+		$Enter.play() # play sfx
+		return
 	
 	# if able to tp, set can_tp to false, emit teleport_player, and connect a timer to the player
-	$Enter.play() # play sfx
 	body.can_tp = false;
 	teleport_player.emit()
 	body.get_tree().create_timer(0.25).timeout.connect(body._on_portal_timer_timeout)
