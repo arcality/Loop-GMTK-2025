@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cetsmkq20c8sy"]
+[gd_scene load_steps=55 format=3 uid="uid://cetsmkq20c8sy"]
 
 [ext_resource type="Texture2D" uid="uid://c7of5hwbj1ian" path="res://icon.svg" id="1_8afob"]
 [ext_resource type="Script" uid="uid://cfskfeik1l6kr" path="res://scripts/player/player.gd" id="1_dovo2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bt8vofdocyn3v" path="res://assets/art/player/rat-running.png" id="4_lvxji"]
 [ext_resource type="Texture2D" uid="uid://ctsng2yhf5s4h" path="res://assets/art/player/rat-jumping.png" id="4_p47bc"]
 [ext_resource type="Texture2D" uid="uid://bn2em11sj4sgi" path="res://assets/art/player/rat-throwing.png" id="7_0owmy"]
+[ext_resource type="TileSet" uid="uid://dhbkxihst4aan" path="res://assets/art/tile_map/tile_set.tres" id="8_qek5x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
 radius = 6.0
@@ -367,6 +368,13 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_lvxji")
+
+[node name="GearIcon" type="TileMapLayer" parent="."]
+z_index = 2
+texture_filter = 1
+position = Vector2(-8, -4)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 3, 0, 4, 0, 0, 0)
+tile_set = ExtResource("8_qek5x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2

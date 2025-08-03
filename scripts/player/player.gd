@@ -84,6 +84,10 @@ func _process(delta: float) -> void:
 				$AnimatedSprite2D.play("run")
 		else:
 			$AnimatedSprite2D.play("jump")
+	if held_item:
+		$GearIcon.show()
+	else:
+		$GearIcon.hide()
 
 func start_jump_buffer() -> void:
 	is_jump_buffered = true
