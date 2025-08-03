@@ -212,4 +212,7 @@ func pause_timer() -> void:
 
 
 func final_cutscene() -> void:
-	pass
+	var tween: Tween = create_tween()
+	await tween.tween_property($AudioStreamPlayer, "volume_db", -80.0, 3).set_trans(Tween.TRANS_QUAD).finished
+	$AudioStreamPlayer.stop()
+	$FinalCutsceneSong.play()
