@@ -1,9 +1,112 @@
-[gd_scene load_steps=5 format=4 uid="uid://6yah4jahjrtu"]
+[gd_scene load_steps=22 format=4 uid="uid://6yah4jahjrtu"]
 
 [ext_resource type="Script" uid="uid://bmqupy28jyfrk" path="res://scripts/levels/level-8.gd" id="1_uv5m0"]
 [ext_resource type="PackedScene" uid="uid://ckvsvy1qhbian" path="res://scenes/background/parallax-bg-generic.tscn" id="2_3ir2e"]
 [ext_resource type="TileSet" uid="uid://dhbkxihst4aan" path="res://assets/art/tile_map/tile_set.tres" id="2_atcb8"]
 [ext_resource type="Texture2D" uid="uid://chdnkrwi6n6js" path="res://assets/art/backgrounds/clock-bg-generic.png" id="3_nmrpx"]
+[ext_resource type="PackedScene" uid="uid://raldw24cmwme" path="res://scenes/objects/throwable-item.tscn" id="5_l2byv"]
+[ext_resource type="Texture2D" uid="uid://3n2liybhk4x7" path="res://assets/art/end_cutscene/wizrat-sleeping.png" id="6_jhmwl"]
+[ext_resource type="Texture2D" uid="uid://chda8nxx8hhi6" path="res://assets/art/end_cutscene/wizrat-bed.png" id="6_ostc2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhmwl"]
+size = Vector2(51, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81gh4"]
+atlas = ExtResource("6_jhmwl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do7uq"]
+atlas = ExtResource("6_jhmwl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrybq"]
+atlas = ExtResource("6_jhmwl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfybs"]
+atlas = ExtResource("6_jhmwl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_234ee"]
+atlas = ExtResource("6_jhmwl")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xenjy"]
+atlas = ExtResource("6_jhmwl")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snrik"]
+atlas = ExtResource("6_jhmwl")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipnfj"]
+atlas = ExtResource("6_jhmwl")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbf2u"]
+atlas = ExtResource("6_jhmwl")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayh27"]
+atlas = ExtResource("6_jhmwl")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y86yw"]
+atlas = ExtResource("6_jhmwl")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vnu4"]
+atlas = ExtResource("6_jhmwl")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ni0p0"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81gh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do7uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrybq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfybs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_234ee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xenjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snrik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipnfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbf2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayh27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y86yw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vnu4")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 6.0
+}]
 
 [node name="Level-8" type="Node2D"]
 script = ExtResource("1_uv5m0")
@@ -20,5 +123,25 @@ texture = ExtResource("3_nmrpx")
 [node name="TileMapLayer" type="TileMapLayer" parent="Layers"]
 tile_map_data = PackedByteArray("AAAAAA0AAAABAAEAAAABAA0AAAABAAEAAAACAA0AAAABAAEAAAADAA0AAAABAAEAAAAEAA0AAAABAAEAAAAFAA0AAAABAAEAAAAGAA0AAAABAAEAAAAHAA0AAAABAAEAAAAIAA0AAAABAAEAAAAJAA0AAAABAAEAAAAKAA0AAAABAAEAAAALAA0AAAABAAEAAAAMAA0AAAABAAEAAAANAA0AAAABAAEAAAAOAA0AAAABAAEAAAAPAA0AAAABAAEAAAAQAA0AAAABAAEAAAARAA0AAAABAAEAAAASAA0AAAABAAEAAAATAA0AAAABAAEAAAAUAA0AAAABAAEAAAAVAA0AAAABAAEAAAAWAA0AAAABAAEAAAAXAA0AAAABAAEAAAAXAAwAAAABAAEAAAAWAAwAAAABAAEAAAAVAAwAAAABAAEAAAAUAAwAAAABAAEAAAATAAwAAAABAAEAAAASAAwAAAABAAEAAAARAAwAAAABAAEAAAAQAAwAAAABAAEAAAAPAAwAAAABAAEAAAAOAAwAAAABAAEAAAANAAwAAAABAAEAAAAMAAwAAAABAAEAAAALAAwAAAABAAEAAAAKAAwAAAABAAEAAAAJAAwAAAABAAEAAAAIAAwAAAABAAEAAAAHAAwAAAABAAEAAAAGAAwAAAABAAEAAAAFAAwAAAABAAEAAAAEAAwAAAABAAEAAAADAAwAAAABAAEAAAACAAwAAAABAAEAAAABAAwAAAABAAEAAAAAAAwAAAABAAEAAAAAAAsAAAABAAAAAAABAAsAAAABAAAAAAACAAsAAAABAAAAAAADAAsAAAABAAAAAAAEAAsAAAABAAAAAAAFAAsAAAABAAAAAAAGAAsAAAABAAAAAAAHAAsAAAABAAAAAAAIAAsAAAABAAAAAAAJAAsAAAABAAAAAAAKAAsAAAABAAAAAAALAAsAAAABAAAAAAAMAAsAAAABAAAAAAANAAsAAAABAAAAAAAOAAsAAAABAAAAAAAPAAsAAAABAAAAAAAQAAsAAAABAAAAAAARAAsAAAABAAAAAAASAAsAAAABAAAAAAATAAsAAAABAAAAAAAUAAsAAAABAAAAAAAVAAsAAAABAAAAAAAWAAsAAAABAAAAAAAXAAsAAAABAAEAAAAXAAoAAAAAAAEAAAAXAAkAAAAAAAEAAAAXAAgAAAAAAAEAAAAXAAcAAAAAAAEAAAAXAAYAAAAAAAEAAAAXAAUAAAAAAAEAAAAXAAQAAAAAAAEAAAAXAAMAAAAAAAEAAAAXAAIAAAAAAAEAAAAXAAEAAAAAAAEAAAAAAAYAAAACAAEAAAAAAAUAAAACAAEAAAAAAAQAAAACAAEAAAAAAAMAAAACAAEAAAAAAAIAAAACAAEAAAAAAAcAAAACAAIAAAAAAAEAAAACAAEAAAABAAAAAAABAAIAAAACAAAAAAABAAIAAAADAAAAAAABAAIAAAAEAAAAAAABAAIAAAAFAAAAAAABAAIAAAAGAAAAAAABAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAJAAAAAAABAAIAAAAKAAAAAAABAAIAAAALAAAAAAABAAIAAAAMAAAAAAABAAIAAAANAAAAAAABAAIAAAAOAAAAAAABAAIAAAAPAAAAAAABAAIAAAAQAAAAAAABAAIAAAARAAAAAAABAAIAAAASAAAAAAABAAIAAAATAAAAAAABAAIAAAAUAAAAAAABAAIAAAAVAAAAAAABAAIAAAAWAAAAAAABAAIAAAAXAAAAAAABAAEAAAAAAAAAAAABAAEAAAD//wgAAAABAAEAAAD//wkAAAABAAEAAAD//woAAAABAAEAAAA=")
 tile_set = ExtResource("2_atcb8")
+
+[node name="Throwable-item" parent="." instance=ExtResource("5_l2byv")]
+position = Vector2(94, 168)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CutsceneThres" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(280.5, 157)
+shape = SubResource("RectangleShape2D_jhmwl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(281, 160)
+sprite_frames = SubResource("SpriteFrames_ni0p0")
+animation = &"sleep"
+
+[node name="Bed" type="Sprite2D" parent="."]
+position = Vector2(281, 160)
+texture = ExtResource("6_ostc2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="Parallax-bg-generic"]
