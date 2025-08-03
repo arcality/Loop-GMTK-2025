@@ -78,6 +78,8 @@ func load_level_from_number(level_num: int, spawn_pos_index: int) -> void:
 	
 	if current_level.level_number == 7:
 		pause_timer()
+	if current_level.level_number == 8:
+		final_cutscene()
 
 #func remove_level():
 	#remove_child(current_level)
@@ -207,3 +209,7 @@ func pause_timer() -> void:
 	$TimeLimitTimer.paused = true
 	most_recent_time = 90.0 - $TimeLimitTimer.time_left
 	total_time += 90.0 - $TimeLimitTimer.time_left
+
+
+func final_cutscene() -> void:
+	pass
