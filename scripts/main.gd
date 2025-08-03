@@ -146,6 +146,13 @@ func rewind() -> void:
 	# play rewind sound
 	$RewindSound.play()
 	
+	#play rewind animation
+	$Camera2D/RewindAnimation.visible = true
+	# reset the sprite back to frame 0 before playing
+	$Camera2D/RewindAnimation.stop()
+	$Camera2D/RewindAnimation.frame = 0
+	$Camera2D/RewindAnimation.play()
+	
 	# when rewind sound is fininshed, then player will unfreeze and respawn
 
 
@@ -157,4 +164,6 @@ func _on_rewind_sound_finished() -> void:
 	# unfreeze and respawn
 	player.set_physics_process(true)
 	player.set_process(true)
+	$Camera2D/RewindAnimation.stop()
+	$Camera2D/RewindAnimation.visible = false
 	respawn()
